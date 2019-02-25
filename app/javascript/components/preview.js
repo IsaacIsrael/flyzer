@@ -4,7 +4,7 @@ function readURL(input) {
     const reader = new FileReader();
 
     reader.onload = function(e) {
-      $('#image').attr('src', e.target.result);
+      $('#user_profile').attr('src', e.target.result);
     }
 
     reader.readAsDataURL(input.files[0]);
@@ -12,7 +12,7 @@ function readURL(input) {
 }
 
 function initReadUrl(){
-  var element = $("#flight_photo");
+  var element = $("#user_photo");
   if (element){
     element.change(function() {
       readURL(this);
