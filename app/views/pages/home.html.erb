@@ -1,2 +1,62 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<section class="full-page">
+  <div class="home-header">
+    <div id="carouselHomeCard" class="carousel slide" data-ride="carousel">
+        <div class="card">
+      <div class="carousel-inner">
+          <div class="carousel-item active" data-interval="100000">
+            <div class="card-body">
+              <div class="card-icon">
+                <%= image_tag('airplane.svg') %>
+              </div>
+              <div class="card-text">
+                <h1 class="greetings text-center">Bom dia,</h1>
+                <h1 class="username">Fabricio!</h1>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item" data-interval="100000">
+            <div class="card-body">
+              <div class="card-icon">
+                <%= image_tag('no-flights.svg') %>
+              </div>
+              <div class="card-text">
+                <h1>Voce nao possui nenhum voo cadastrado</h1>
+                <div class="btn btn-header">Cadastre agora!</div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item" data-interval="100000">
+            <div class="card-body">
+              <div class="card-icon">
+                <%= image_tag('airplane.svg') %>
+              </div>
+              <div class="card-text">
+                <h1>Bom dia,</h1>
+                <h1 class="username">Henrique!</h1>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item" data-interval="100000">
+            <div class="card-body">
+              <div class="card-icon">
+                <%= image_tag('airplane.svg') %>
+              </div>
+              <div class="card-text">
+                <h1>Bom dia,</h1>
+                <h1 class="username">Tamara!</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselHomeCard" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselHomeCard" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </div>
+</section>
