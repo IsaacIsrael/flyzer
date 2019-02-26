@@ -4,11 +4,11 @@
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
   # Add the credentials from your Google application to your secrets
-  client_id = Rails.application.secrets[:google_client_id]
-  client_secret = Rails.application.secrets[:google_secret]
+  client_id = ENV['GOOGLE_ID']
+  client_secret = ENV['GOOGLE_SECRET']
   # Configure Google omniauth with proper scope
   config.omniauth :google_oauth2, client_id, client_secret, {
-    scope: "contacts.readonly,userinfo.email"
+    scope: "userinfo.email"
   }
 
   # The secret key used by Devise. Devise uses this key to generate
