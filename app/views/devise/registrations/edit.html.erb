@@ -10,17 +10,20 @@
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
     <% end %>
 
-    <%= f.input :password,
+    <% if resource.provider == "google_oauth2" %>
+    <% else %>
+      <%= f.input :password,
                 hint: "leave it blank if you don't want to change it",
                 required: false,
                 input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
+      <%= f.input :password_confirmation,
                 required: false,
                 input_html: { autocomplete: "new-password" } %>
-    <%= f.input :current_password,
-                hint: "we need your current password to confirm your changes",
-                required: true,
-                input_html: { autocomplete: "current-password" } %>
+      <%= f.input :current_password,
+                  hint: "we need your current password to confirm your changes",
+                  required: true,
+                  input_html: { autocomplete: "current-password" } %>
+    <% end %>
     <%= f.input :photo, type: "file", id: "imgInp" %>
     <%= f.input :photo_cache, as: :hidden %>
     <%= cl_image_tag( @user.photo_url || "non_existing_id.png", :default_image => "profile_placeholder.png"  ,crop: :fill, class: "imagepreview", id: "user_profile") %>
