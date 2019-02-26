@@ -7,11 +7,8 @@ class AmadeusService
   end
 
   def self.flight_offers(params)
-    call_api_flight_offers(params)
-  end
-
-  def self.call_api_flight_offers(params)
-    client.shopping.flight_offers.get(params).result
+    response = client.shopping.flight_offers.get(params).result
+    response["data"].map { |item| build_response_flight_offers(item) }
   end
 
   def self.build_response_flight_offers(item)
@@ -24,9 +21,9 @@ class AmadeusService
       departure_time: departure["at"],
       arrival_time: arrival["at"],
       available_seats: stops.map { |flight| flight["pricingDetailPerAdult"]["availability"] }.min,
-      origin_id: Place.find { |origin| origin.code == departure["iataCode"] }.id,
-      destiny_id: Place.find { |destiny| destiny.code == arrival["iataCode"] }.id,
-      company_id:  Company.find { |company| company.iata == carrier }.id,
+      origin_id: Place.find { |origin| origin.code == departure["iataCode"] }&.id,
+      destiny_id: Place.find { |destiny| destiny.code == arrival["iataCode"] }&.id,
+      company_id:  Company.find { |company| company.iata == carrier }&.id,
       stops_attributes: build_stops_flight_offers(stops)
     }
   end
@@ -37,11 +34,11 @@ class AmadeusService
       departure_time = Time.parse(stop["flightSegment"]["departure"]["at"])
       {
         duration: (departure_time - arrivel_time).ceil,
-        place_id: Place.find { |destiny| destiny.code == stop["flightSegment"]["departure"]["iataCode"] }.id,
+        place_id: Place.find { |destiny| destiny.code == stop["flightSegment"]["departure"]["iataCode"] }&.id,
       }
     end
   end
 
-  private_class_method :client, :call_api_flight_offers,
-    :build_stops_flight_offers
+  private_class_method :client, :build_response_flight_offers,
+                       :build_stops_flight_offers
 end
