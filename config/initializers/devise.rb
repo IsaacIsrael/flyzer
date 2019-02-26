@@ -8,7 +8,7 @@ Devise.setup do |config|
   client_secret = ENV['GOOGLE_SECRET']
   # Configure Google omniauth with proper scope
   config.omniauth :google_oauth2, client_id, client_secret, {
-    scope: "userinfo.email,calendar"
+    scope: "userinfo.email,calendar.readonly"
   }
 
   # The secret key used by Devise. Devise uses this key to generate
