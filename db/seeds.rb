@@ -36,3 +36,17 @@ Place.create(response.body.map do |airport|
 end)
 
 puts "Finished Creating the Places ...."
+
+# https://github.com/BesrourMS/Airlines
+# {
+#   "iata": "0A",
+#   "name": "Amber Air"
+# }
+
+puts "Get Company from the URL  ...."
+response = Unirest.get "https://raw.githubusercontent.com/BesrourMS/Airlines/master/airlines.json"
+
+puts "Starting Company the Places  ...."
+Company.create(response.body)
+
+puts "Finished Company the Places ...."
