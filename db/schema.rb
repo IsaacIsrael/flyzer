@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2019_02_26_163404) do
 
   create_table "companies", force: :cascade do |t|
     t.string "name"
-    t.string "code"
+    t.string "iata"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 2019_02_26_163404) do
     t.string "name"
     t.string "code"
     t.string "lat"
-    t.string "long"
+    t.string "lon"
     t.string "city"
     t.string "state"
     t.string "country"
