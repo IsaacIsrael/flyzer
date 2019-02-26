@@ -8,6 +8,8 @@ gem 'pg', '~> 0.21'
 gem 'puma'
 gem 'rails', '5.2.2'
 gem 'redis'
+gem 'cloudinary', '~> 1.9.1'
+gem 'carrierwave', '~> 1.2'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.5.0'
@@ -16,6 +18,8 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 
+
+# API requests
 gem 'unirest'
 
 group :development do
