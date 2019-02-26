@@ -23,9 +23,9 @@ ActiveRecord::Schema.define(version: 2019_02_26_170826) do
   end
 
   create_table "flights", force: :cascade do |t|
-    t.string "amadeus_id"
-    t.datetime "departure_time"
-    t.datetime "arrival_time"
+    t.string "number"
+    t.date "departure_time"
+    t.date "arrival_time"
     t.integer "available_seats"
     t.bigint "company_id"
     t.bigint "origin_id"
@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 2019_02_26_170826) do
   end
 
   create_table "stops", force: :cascade do |t|
-    t.integer "duration"
+    t.time "duration"
     t.bigint "place_id"
     t.bigint "flight_id"
     t.datetime "created_at", null: false
