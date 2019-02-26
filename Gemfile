@@ -18,9 +18,11 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 
-
 # API requests
 gem 'unirest'
+
+# Flight API
+gem 'amadeus'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
