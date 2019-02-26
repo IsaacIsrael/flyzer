@@ -10,8 +10,6 @@ gem 'rails', '5.2.2'
 gem 'redis'
 gem 'cloudinary', '~> 1.9.1'
 gem 'carrierwave', '~> 1.2'
-gem 'mime-types', '~> 3.2', '>= 3.2.2'
-gem 'rest-client', '~> 2.0', '>= 2.0.2'
 
 gem 'omniauth-google-oauth2', '~> 0.2.2'
 gem 'google-api-client', '~> 0.13.6'
