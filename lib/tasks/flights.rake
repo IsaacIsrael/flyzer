@@ -1,6 +1,6 @@
 namespace :flights do
   desc "Poppulate the flights table"
-  task :populate do
+  task :populate => :environment do
     params = {
       origin: 'NYC',
       destination: 'MAD',
