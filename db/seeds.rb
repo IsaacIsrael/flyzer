@@ -27,11 +27,14 @@
 #     "direct_flights": "2",
 #     "carriers": "1"
 #  }
+
 puts "Get Places from the URL  ...."
 response = Unirest.get "https://gist.githubusercontent.com/tdreyno/4278655/raw/7b0762c09b519f40397e4c3e100b097d861f5588/airports.json"
 
 puts "Starting Creating the Places  ...."
+Place.delete_all
 Place.create(response.body.map do |airport|
+  airport["city"] =  airport["tz"].split('/').last&.gsub("_"," ")
   airport.slice("code","lat", "lon", "name", "city", "state", "country")
 end)
 
@@ -47,6 +50,7 @@ puts "Get Company from the URL  ...."
 response = Unirest.get "https://raw.githubusercontent.com/BesrourMS/Airlines/master/airlines.json"
 
 puts "Starting Company the Places  ...."
+Company.delete_all
 Company.create(response.body)
 
 puts "Finished Company the Places ...."
