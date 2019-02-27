@@ -11,7 +11,7 @@
         <h1><%= flight.departure_time.strftime("%H:%M") %> - <%= flight.arrival_time.strftime("%H:%M") %></h1>
       </div>
       <div>
-        <p>Duração: <%= rand(30..200) %> min </p>
+        <p>Duração: <%= distance_of_time_in_words(flight.departure_time, flight.arrival_time) %></p>
       </div>
       <div class="d-flex flex-row align-items-center justify-content-between">
         <h2>R$ <%= rand(1..9) %>.<%= rand(50..950) %>,00</h2>
@@ -29,7 +29,7 @@
         <h1><%= flight.departure_time.strftime("%H:%M") %> - <%= flight.arrival_time.strftime("%H:%M") %></h1>
       </div>
       <div>
-        <p>Duração: <%= rand(30..200) %> min </p>
+        <p>Duração: <%= distance_of_time_in_words(flight.departure_time, flight.arrival_time) %></p>
       </div>
       <div class="d-flex flex-row align-items-center justify-content-between">
         <h2>R$ <%= rand(1..9) %>.<%= rand(50..950) %>,00</h2>
@@ -47,7 +47,7 @@
         <h1><%= flight.departure_time.strftime("%H:%M") %> - <%= flight.arrival_time.strftime("%H:%M") %></h1>
       </div>
       <div>
-        <p>Duração: <%= rand(30..200) %> min </p>
+        <p>Duração: <%= distance_of_time_in_words(flight.departure_time, flight.arrival_time) %></p>
       </div>
       <div class="d-flex flex-row align-items-center justify-content-between">
         <h2>R$ <%= rand(1..9) %>.<%= rand(50..950) %>,00</h2>
@@ -64,7 +64,7 @@
         <h1><%= flight.departure_time.strftime("%H:%M") %> - <%= flight.arrival_time.strftime("%H:%M") %></h1>
       </div>
       <div>
-        <p>Duração: <%= rand(30..200) %> min </p>
+        <p>Duração: <%= distance_of_time_in_words(flight.departure_time, flight.arrival_time) %></p>
       </div>
       <div class="d-flex flex-row align-items-center justify-content-between">
         <h2>R$ <%= rand(1..9) %>.<%= rand(50..950) %>,00</h2>

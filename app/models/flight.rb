@@ -5,4 +5,8 @@ class Flight < ApplicationRecord
   has_many :stops
 
   accepts_nested_attributes_for :stops
+
+  def self.sort_flights_by_date
+    order('departure_time ASC')
+  end
 end
