@@ -291,6 +291,7 @@ DEPENDENCIES
   google-api-client (~> 0.13.6)
   jbuilder (~> 2.0)
   listen (~> 3.0.5)
+  mime-types (~> 3.2, >= 3.2.2)
   omniauth-google-oauth2 (~> 0.2.2)
   pg (~> 0.21)
   pry-byebug
@@ -298,6 +299,7 @@ DEPENDENCIES
   puma
   rails (= 5.2.2)
   redis
+  rest-client (~> 2.0, >= 2.0.2)
   sassc-rails
   simple_form
   spring
