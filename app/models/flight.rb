@@ -7,7 +7,7 @@ class Flight < ApplicationRecord
 
   accepts_nested_attributes_for :stops
 
-  def route
-    "#{origin.code} - #{destiny.code}"
+  def self.sort_flights_by_date
+    order('departure_time ASC')
   end
 end
