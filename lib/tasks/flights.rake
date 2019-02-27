@@ -2,10 +2,12 @@ namespace :flights do
   desc "Poppulate the flights table"
   task :populate => :environment do
     params = {
-      origin: 'NYC',
-      destination: 'MAD',
+      origin: 'JFK',
+      destination: 'GRU',
       departureDate: '2019-08-01'
     }
+    puts "Create the Flights"
     Flight.create(AmadeusService.flight_offers(params))
+    puts "Finish creating the flights"
   end
 end
