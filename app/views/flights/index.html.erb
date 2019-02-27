@@ -8,6 +8,7 @@
         Duration: <%= distance_of_time_in_words(flight.departure_time, flight.arrival_time)%>
       </p>
       <p>Seats: <%= flight.available_seats %></p>
+      <p>Amount: <%= humanized_money_with_symbol(flight.price) %></p>
     </div>
   <% end %>
   </div>

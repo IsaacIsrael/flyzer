@@ -24,6 +24,7 @@ class AmadeusService
       origin_id: Place.find { |origin| origin.code == departure["iataCode"] }&.id,
       destiny_id: Place.find { |destiny| destiny.code == arrival["iataCode"] }&.id,
       company_id:  Company.find { |company| company.iata == carrier }&.id,
+      price: item["offerItems"][0]["price"].values.map(&:to_f).inject(0, :+).to_money,
       stops_attributes: build_stops_flight_offers(stops)
     }
   end

@@ -21,6 +21,9 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 
+gem 'money-rails'
+gem "geocoder"
+
 # API requests
 gem 'unirest'
 
