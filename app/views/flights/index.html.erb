@@ -1,2 +1,17 @@
-<h1>Flights#index</h1>
-<p>Find me in app/views/flights/index.html.erb</p>
+<section class="flight-index">
+  <div class="container">
+  <h1 class="text-center">Flights</h1>
+  <%=  request.location %>
+  <%=  request.location.city %>
+  <% @flights.each do |flight| %>
+    <div>
+      <p><%= flight.route %></p>
+      <p>
+        Duration: <%= distance_of_time_in_words(flight.departure_time, flight.arrival_time)%>
+      </p>
+      <p>Seats: <%= flight.available_seats %></p>
+      <p>Amount: <%= humanized_money_with_symbol(flight.price) %></p>
+    </div>
+  <% end %>
+  </div>
+</section>

@@ -10,28 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_26_170826) do
+ActiveRecord::Schema.define(version: 2019_02_27_180520) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "companies", force: :cascade do |t|
     t.string "name"
-    t.string "code"
+    t.string "iata"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "flights", force: :cascade do |t|
-    t.string "number"
-    t.date "departure_time"
-    t.date "arrival_time"
+    t.string "amadeus_id"
+    t.datetime "departure_time"
+    t.datetime "arrival_time"
     t.integer "available_seats"
     t.bigint "company_id"
     t.bigint "origin_id"
     t.bigint "destiny_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "price_cents", default: 0, null: false
     t.index ["arrival_time"], name: "index_flights_on_arrival_time"
     t.index ["company_id"], name: "index_flights_on_company_id"
     t.index ["departure_time"], name: "index_flights_on_departure_time"
@@ -43,7 +44,7 @@ ActiveRecord::Schema.define(version: 2019_02_26_170826) do
     t.string "name"
     t.string "code"
     t.string "lat"
-    t.string "long"
+    t.string "lon"
     t.string "city"
     t.string "state"
     t.string "country"
@@ -52,7 +53,7 @@ ActiveRecord::Schema.define(version: 2019_02_26_170826) do
   end
 
   create_table "stops", force: :cascade do |t|
-    t.time "duration"
+    t.integer "duration"
     t.bigint "place_id"
     t.bigint "flight_id"
     t.datetime "created_at", null: false
