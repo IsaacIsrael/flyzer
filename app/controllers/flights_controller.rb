@@ -1,8 +1,7 @@
 class FlightsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index]
   def index
-    teste = SkyscannerHelper.flight_list(serch_parms.to_h)
-    raise
+    @flights = Flight.all
   end
 
   private

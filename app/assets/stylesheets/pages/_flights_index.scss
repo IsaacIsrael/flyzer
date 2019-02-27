@@ -1,0 +1,29 @@
+.flight-index {
+  color: $white;
+  margin-bottom: 0;
+  h1 {
+    font-size: ($font-size * 3);
+    font-weight: 400;
+  }
+  h2 {
+    font-size: ($font-size * 2);
+    font-weight: 300;
+  }
+  h3 {
+    font-size: ($font-size * 2);
+    font-weight: 100;
+  }
+  p {
+    font-size: $font-size;
+    font-weight: 100;
+  }
+  // .index-card {
+  //   background-image: linear-gradient(to left, rgba(83, 94, 127,0.4),rgba(64, 75, 108,0.4),rgba(64, 75, 108,0.4),rgba(64, 75, 108,0.4)), url(gplay.png);
+  // }
+  .card-body {
+    display: flex;
+    justify-content: center;
+    padding: ($padding / 2) ($padding * 1);
+    min-height: 160px;
+  }
+}
