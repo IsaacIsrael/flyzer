@@ -5,4 +5,8 @@ class Flight < ApplicationRecord
   has_many :stops
 
   accepts_nested_attributes_for :stops
+
+  def route
+    "#{origin.code} - #{destiny.code}"
+  end
 end
