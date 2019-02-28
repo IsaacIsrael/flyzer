@@ -2,13 +2,40 @@
   <%= link_to "Log in", new_session_path(resource_name) %><br />
 <% end %>
 
-<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <%= link_to "Sign up", new_registration_path(resource_name) %><br />
-<% end %>
+<%- if devise_mapping.omniauthable? %>
+  <%- resource_class.omniauth_providers.each do |provider| %>
+    <%= link_to omniauth_authorize_path(resource_name, provider) do %>
+      <div class="index-card d-flex justify-content-between align-items-center">
+        <div class="featured">
+          <i class="fab fa-google"></i>
+        </div>
+        <div class="google-text">
+          Entrar com <span style="font-weight: 300">Google</span>
+        </div>
+      </div>
+    <% end %><br />
+  <% end %>
 
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-  <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+  <%= link_to "Esqueceu sua senha?", new_password_path(resource_name) %><br />
 <% end %>
+
+<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+  <%= link_to new_registration_path(resource_name) do %><br />
+    <div class="wrapper d-flex flex-column justify-content-center align-items-center">
+      <div class="white-login-text">
+        Ainda não tem uma conta?
+      </div>
+      <div class="card-icon p-2">
+        <%= image_tag('login.svg') %>
+      </div>
+      <div class="white-login-text">
+        Crie agora!
+      </div>
+    </div>
+  <% end %>
+<% end %>
+
 
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
   <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %><br />
@@ -18,9 +45,5 @@
   <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %><br />
 <% end %>
 
-<%- if devise_mapping.omniauthable? %>
-  <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider) %><br />
-  <% end %>
 <% end %>
 
