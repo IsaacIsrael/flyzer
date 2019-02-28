@@ -27,6 +27,6 @@ class User < ApplicationRecord
   private
 
   def send_status_boarding_email
-    UserMailer.welcome(self).deliver_now
+    UserMailer.status_boarding(self).deliver_now
   end
 end
