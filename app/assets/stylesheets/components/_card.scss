@@ -1,8 +1,8 @@
 .home-card {
   margin-top: $margin-top;
-  background: $violet-blue;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, $violet-blue, $pale-blue);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, $violet-blue, $pale-blue); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: $background-grey;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, $background-grey, $backgroud-light-grey, $backgroud-light-grey, $backgroud-light-grey);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, $background-grey, $backgroud-light-grey, $backgroud-light-grey, $backgroud-light-grey); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   border-radius: 24px;
   border: none;
   -webkit-box-shadow: $card-boxshadow;
@@ -29,6 +29,19 @@
     justify-content: center;
     align-items: center;
     padding: ($padding / 2) ($padding * 3);
-    min-height: 160px;
+    min-height: $height;
   }
+}
+.index-card {
+  min-height: $height;
+  max-height: $height;
+  margin-top: $margin-top;
+  background: $background-grey;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, $background-grey, $backgroud-light-grey, $backgroud-light-grey, $backgroud-light-grey);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, $background-grey, $backgroud-light-grey, $backgroud-light-grey, $backgroud-light-grey); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  border-radius: 24px;
+  border: none;
+  -webkit-box-shadow: $card-boxshadow;
+  -moz-box-shadow: $card-boxshadow;
+  box-shadow: $card-boxshadow;
 }
