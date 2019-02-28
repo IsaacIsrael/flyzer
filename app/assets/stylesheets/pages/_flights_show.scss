@@ -1,5 +1,24 @@
 .flights-show {
   .flight-info {
     color: $white;
+    .flight-info-route {
+      font-weight: 300;
+      font-size: ($font-size * 3);
+    }
+    .flight-info-time {
+      color: $coral-red;
+      .flight-plus-one {
+        font-weight: bold;
+        font-size: ($font-size * 1.75);
+      }
+    }
+    .flight-info-duration {
+      font-size: ($font-size * 0.75);
+    }
+  }
+  .reverse-style {
+    background: $background-grey;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, $background-grey, $backgroud-light-grey, $backgroud-light-grey, $backgroud-light-grey);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, $background-grey, $backgroud-light-grey, $backgroud-light-grey, $backgroud-light-grey); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   }
 }
