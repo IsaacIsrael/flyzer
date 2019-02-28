@@ -21,4 +21,12 @@ class User < ApplicationRecord
       user.refresh_token = auth.credentials.refresh_token
     end
   end
+
+  after_create :send_status_boarding_email
+
+  private
+
+  def send_status_boarding_email
+    UserMailer.welcome(self).deliver_now
+  end
 end
