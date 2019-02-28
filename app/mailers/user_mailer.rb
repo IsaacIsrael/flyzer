@@ -1,13 +1,7 @@
 class UserMailer < ApplicationMailer
+  def status_boarding(user)
+    @user = user
 
-  # Subject can be set in your I18n file at config/locales/en.yml
-  # with the following lookup:
-  #
-  #   en.user_mailer.status_boarding.subject
-  #
-  def status_boarding
-    @greeting = "Hi"
-
-    mail to: "to@example.org"
+    mail(to: @user.email, subject: 'Você embarcou?')
   end
 end
