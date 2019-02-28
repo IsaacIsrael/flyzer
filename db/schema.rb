@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_28_213702) do
+ActiveRecord::Schema.define(version: 2019_02_28_215404) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,17 @@ ActiveRecord::Schema.define(version: 2019_02_28_213702) do
     t.index ["departure_time"], name: "index_flights_on_departure_time"
     t.index ["destiny_id"], name: "index_flights_on_destiny_id"
     t.index ["origin_id"], name: "index_flights_on_origin_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string "state"
+    t.string "flight_sku"
+    t.integer "amount_cents", default: 0, null: false
+    t.jsonb "payment"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "places", force: :cascade do |t|
@@ -104,6 +115,7 @@ ActiveRecord::Schema.define(version: 2019_02_28_213702) do
   add_foreign_key "flights", "companies"
   add_foreign_key "flights", "places", column: "destiny_id"
   add_foreign_key "flights", "places", column: "origin_id"
+  add_foreign_key "orders", "users"
   add_foreign_key "stops", "flights"
   add_foreign_key "stops", "places"
   add_foreign_key "tickets", "flights"
