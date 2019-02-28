@@ -7,8 +7,7 @@ class FlightsController < ApplicationController
     @flights = Flight.sort_flights_by_date
   end
 
-  def show
-  end
+  def show; end
 
   private
 
