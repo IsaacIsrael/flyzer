@@ -1,1 +1,4 @@
-<p>Amount: <%= humanized_money_with_symbol(flight.price_cents) %></p>
+<%= form_tag orders_path do %>
+  <%= hidden_field_tag 'flight_id', @flight.id %>
+  <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+<% end %>

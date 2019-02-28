@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :flights, except: :show
   get 'flight/:id', to: 'flights#show'
+  resources :orders, only: %i[show create]
 end
