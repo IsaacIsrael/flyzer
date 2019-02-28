@@ -49,11 +49,19 @@ puts "Finished Creating the Places ...."
 puts "Get Company from the URL  ...."
 response = Unirest.get "https://raw.githubusercontent.com/BesrourMS/Airlines/master/airlines.json"
 
-puts "Starting Company the Places  ...."
+puts "Starting Creating the Company   ...."
 Company.delete_all
 Company.create(response.body)
 
-puts "Finished Company the Places ...."
+puts "Finished Creating the Company ...."
+
+puts "Starting Creating the Cities   ...."
+json_from_file = File.read( File.dirname(__FILE__) + "/data/cities.json")
+cities = JSON.parse(json_from_file)["data"]
+City.create(cities)
+puts "Finished Creating the Cities ...."
+
+# p I18n.transliterate("São Paulo!")
 
 
 

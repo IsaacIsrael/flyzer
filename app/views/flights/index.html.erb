@@ -1,8 +1,9 @@
 <section class="flight-index">
   <div class="container">
   <h1 class="text-center">Flights</h1>
-  <%=  request.location %>
-  <%=  request.location.city %>
+  <p>Cidade: <%=  @city  %></p>
+  <p>Data:  <%=  @date  %></p>
+
   <% @flights.each do |flight| %>
     <div>
       <p><%= flight.route %></p>
