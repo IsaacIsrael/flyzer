@@ -1,0 +1,28 @@
+.user-login {
+  .white-login-text {
+    color: $white;
+  }
+  .index-card {
+    min-height: 5vh;
+    max-height: 5vh;
+    min-width: 60vw;
+    max-width: 60vw;
+  }
+  .log-in {
+    border-radius: 50px;
+  }
+  .featured {
+    min-height: 5vh;
+    max-height: 5vh;
+    padding: ($padding / 2) $padding;
+    color: $white;
+    background: $purple-ish;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, $purple-ish, $pink);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, $purple-ish, $pink); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    border-radius: 24px 0px 0px 24px;
+  }
+  .google-text {
+    margin-right: 20%;
+    color: $white;
+  }
+}
