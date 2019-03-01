@@ -1,4 +1,4 @@
-<%= form_tag orders_path do %>
+<%= form_tag flight_orders_path(@flight) do %>
   <%= hidden_field_tag 'flight_id', @flight.id %>
   <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
 <% end %>
