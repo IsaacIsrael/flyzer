@@ -14,4 +14,8 @@ class Flight < ApplicationRecord
   scope :destiny_city, ->(destiny) { joins("JOIN places d ON d.id =  flights.destiny_id").where("d.city = ?", destiny ) }
 
   validates :amadeus_id, uniqueness: true
+
+  def duration
+    arrival_time - departure_time
+  end
 end

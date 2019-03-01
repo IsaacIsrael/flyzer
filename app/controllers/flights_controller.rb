@@ -1,7 +1,7 @@
 class FlightsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index new load search]
   before_action :set_variables, only: %i[index load]
-  helper_method :cheapest_flight
+  helper_method :cheapest_flight, :fastest_flight, :most_convenient_flight
 
   def index
     set_flights
@@ -30,13 +30,16 @@ class FlightsController < ApplicationController
   def search; end
 
   def cheapest_flight
-    cheapest_flight = set_flights.minimum('price_cents')
-    @cheapest = set_flights.where(price_cents: cheapest_flight)
-    @cheapest.first
+    set_flights('price_cents ASC, (arrival_time - departure_time) ASC').first
   end
 
   def fastest_flight
-    duration =
+    set_flights('(arrival_time - departure_time) ASC, price_cents ASC').first
+  end
+
+  def most_convenient_flight
+    set_flights('((arrival_time - departure_time) / price_cents) ASC').first
+  end
 
   private
 
@@ -47,9 +50,9 @@ class FlightsController < ApplicationController
     @date = DateTime.now
   end
 
-  def set_flights
+  def set_flights(criterion = 'departure_time ASC')
     @flights = Flight
                .filter(date: @date, origin_city: @origin.name, destiny_city: @destiny.name)
-               .order('departure_time ASC')
+               .order(criterion)
   end
 end
