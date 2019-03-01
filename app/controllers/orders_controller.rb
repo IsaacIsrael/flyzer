@@ -6,10 +6,10 @@ class OrdersController < ApplicationController
                            state: 'pending',
                            user: current_user)
 
-    redirect_to flight_order_path(flight[:id], order[:id])
+    redirect_to new_flight_order_payment_path(flight, order)
   end
 
   def show
-    @order = current_user.orders.where(state: 'pending').find(params[:id])
+    @order = current_user.orders.where(state: 'paid').find(params[:id])
   end
 end

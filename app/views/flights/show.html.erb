@@ -1,29 +1,38 @@
-Company: <%= @flight.company.name %>
-<br>
-From: <%= @flight.origin.name %>
-<br>
-To: <%= @flight.destiny.name %>
-<br>
-Departure time: <%= @flight.departure_time %>
-<br>
-Arrival time: <%= @flight.arrival_time %>
-<br>
-Available Seats:<%= @flight.available_seats %>
-<br>
-SKU: <%= @flight.sku %>
-<br>
-Quantity:
-
-<%= simple_form_for [@flight, @order]  , remote: true do |f| %>
+ <div id="order" class="card form-container">
+    <div class="header">
+      <div class="header-row">
+        <div class="big-bold" id="price" data-amount-cents="<%= @flight.price_cents %>" >
+          <ul>
+            <li><h1><%= @flight.company.name %></h1></li>
+            <li>From: <%= @flight.origin.name %></li>
+            <li>To: <%= @flight.destiny.name %></li>
+            <li>Departure time: <%= @flight.departure_time %></li>
+            <li>Arrival time: <%= @flight.arrival_time %></li>
+            <li>SKU: <%= @flight.sku %></li>
+            <li>Price per seat: <%= @flight.price %></li>
+            <li><p>Avalible seats: <span id="available_seat" data-limit="<%= @flight.available_seats %>"><%= @flight.available_seats %></span></p></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="flex-between">
+      <span>Buy Seats:</span>
+      <div class="actions" id="actions">
+        <a href="#/" class="btn btn-round incrementer minus" disabled data-offset="-1">-</a>
+        <span id="counter" data-count="1">1</span>
+        <a href="#/" class="btn btn-round incrementer plus" data-offset="1">+</a>
+      </div>
+    </div>
+   <%= simple_form_for [@flight, @order]  , remote: true do |f| %>
       <%= f.input :passenger_number, label: false,as: :hidden ,:input_html => { :value => "1" } %>
-      <% if flight.available_seat > 0%>
-      <%= f.button :submit, "Pay #{flight.price_string}" ,class: 'submit btn btn-danger',:input_html => { value: "1" }%>
+      <% if @flight.available_seats > 0%>
+        <%= f.button :submit, "Pay $#{@flight.price}" ,class: 'submit btn btn-danger',:input_html => { value: "1" }%>
       <% end %>
     <% end %>
-<br>
-Price: R$<%= @flight.price_cents %>
+</div>
 
 <%= form_tag flight_orders_path(@flight) do %>
   <%= hidden_field_tag 'flight_id', @flight.id %>
-  <%= submit_tag 'Book', class: 'btn btn-primary' %>
+  <%= submit_tag 'Pay', class: 'btn btn-primary' %>
 <% end %>
+
