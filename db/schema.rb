@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2019_03_01_180728) do
 
   # These are extensions that must be enabled in order to support this database
@@ -70,6 +71,21 @@ ActiveRecord::Schema.define(version: 2019_03_01_180728) do
     t.index ["place_id"], name: "index_stops_on_place_id"
   end
 
+  create_table "tickets", force: :cascade do |t|
+    t.string "name"
+    t.string "number"
+    t.date "date"
+    t.string "origin"
+    t.string "destiny"
+    t.datetime "departure_time"
+    t.datetime "arrival_time"
+    t.string "company"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_tickets_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -95,4 +111,5 @@ ActiveRecord::Schema.define(version: 2019_03_01_180728) do
   add_foreign_key "flights", "places", column: "origin_id"
   add_foreign_key "stops", "flights"
   add_foreign_key "stops", "places"
+  add_foreign_key "tickets", "users"
 end

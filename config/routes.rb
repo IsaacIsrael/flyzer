@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   get 'flights/search', to:'flights#search', as: :flight_search
   resources :flights
 
+  resources :tickets
+
 end
