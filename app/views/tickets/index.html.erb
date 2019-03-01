@@ -1,2 +1,35 @@
-<h1>Tickets#index</h1>
-<p>Find me in app/views/tickets/index.html.erb</p>
+<section>
+  <div class="container">
+    <div class="card">
+      <h3 class="text-center">My Tickets</h3>
+      <% @tickets.each do |ticket| %>
+        <div>
+          <div>
+            <%= ticket.name %>
+          </div>
+          <div>
+            <%= ticket.number %>
+          </div>
+          <div>
+            <%= ticket.origin %>
+          </div>
+          <div>
+            <%= ticket.destiny %>
+          </div>
+          <div>
+            <%= ticket.departure_time %>
+          </div>
+          <div>
+            <%= ticket.arrival_time %>
+          </div>
+          <div>
+            <%= ticket.company %>
+          </div>
+        </div>
+        <%= link_to "Update", edit_ticket_path(ticket) %>
+        <%= link_to "Delete", ticket_path(ticket), method: :delete, data: { confirm: "Are you sure?" } %>
+      <% end %>
+    </div>
+    <%= link_to "Create a New Ticket", new_ticket_path %>
+  </div>
+</section>
