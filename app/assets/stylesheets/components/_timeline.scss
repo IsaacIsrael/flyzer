@@ -3,7 +3,7 @@
   position: relative;
 }
 .timeline::after {
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: $white;
   border-radius: 4px;
   bottom: 0;
   content: '';
@@ -25,7 +25,7 @@
 }
 /* The circles on the timeline */
 .timeline  .container::after {
-  background-color: rgb(0, 127, 89);
+  background-color: $pink;
   border-radius: 50%;
   box-shadow: 2px 2px 4px rgba(10,10,10,0.3);
   content: '';
@@ -38,7 +38,7 @@
   z-index: 1;
 }
 .timeline  .container h2{
-  color: rgb(100,100,100);
+  color: $white;
   font-size: x-large;
   font-weight: 300;
 }
@@ -68,11 +68,11 @@
     flex: 0 0 25%;
   }
   .timeline .left > * {
-    padding: 0;
-    text-align: left;
+    padding: 0 2em;
+    text-align: right;
   }
   .timeline  .right > * {
-    padding: 0 1em;
+    padding: 0 2em;
     text-align: left;
   }
 }
