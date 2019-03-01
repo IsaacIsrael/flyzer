@@ -23,16 +23,10 @@
         <a href="#/" class="btn btn-round incrementer plus" data-offset="1">+</a>
       </div>
     </div>
-   <%= simple_form_for [@flight, @order]  , remote: true do |f| %>
+   <%= simple_form_for [@flight, @order] do |f| %>
       <%= f.input :passenger_number, label: false,as: :hidden ,:input_html => { :value => "1" } %>
       <% if @flight.available_seats > 0%>
         <%= f.button :submit, "Pay $#{@flight.price}" ,class: 'submit btn btn-danger',:input_html => { value: "1" }%>
       <% end %>
     <% end %>
 </div>
-
-<%= form_tag flight_orders_path(@flight) do %>
-  <%= hidden_field_tag 'flight_id', @flight.id %>
-  <%= submit_tag 'Pay', class: 'btn btn-primary' %>
-<% end %>
-
