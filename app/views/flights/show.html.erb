@@ -1,4 +1,29 @@
+Company: <%= @flight.company.name %>
+<br>
+From: <%= @flight.origin.name %>
+<br>
+To: <%= @flight.destiny.name %>
+<br>
+Departure time: <%= @flight.departure_time %>
+<br>
+Arrival time: <%= @flight.arrival_time %>
+<br>
+Available Seats:<%= @flight.available_seats %>
+<br>
+SKU: <%= @flight.sku %>
+<br>
+Quantity:
+
+<%= simple_form_for [@flight, @order]  , remote: true do |f| %>
+      <%= f.input :passenger_number, label: false,as: :hidden ,:input_html => { :value => "1" } %>
+      <% if flight.available_seat > 0%>
+      <%= f.button :submit, "Pay #{flight.price_string}" ,class: 'submit btn btn-danger',:input_html => { value: "1" }%>
+      <% end %>
+    <% end %>
+<br>
+Price: R$<%= @flight.price_cents %>
+
 <%= form_tag flight_orders_path(@flight) do %>
   <%= hidden_field_tag 'flight_id', @flight.id %>
-  <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+  <%= submit_tag 'Book', class: 'btn btn-primary' %>
 <% end %>
