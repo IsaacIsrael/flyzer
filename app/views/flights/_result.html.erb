@@ -41,7 +41,7 @@
         </div>
       </div>
     </div>
-    <% flight_most_convinient = most_convenient_flight %>
+    <% flight_most_convenient = most_convenient_flight %>
     <div class="index-card d-flex w-100 flex-row justify-content-center align-items-center">
       <div class="featured d-flex flex-column justify-content-center align-items-center">
         <p class="text-center special-featured"><i class="fas fa-plus fa-xs"></i> Conveniente</p>
@@ -49,15 +49,15 @@
       </div>
       <div class="card-body d-flex flex-column">
         <div>
-          <h1><%= flight_most_convinient.departure_time.strftime("%H:%M") %> - <%= flight_most_convinient.arrival_time.strftime("%H:%M") %></h1>
+          <h1><%= flight_most_convenient.departure_time.strftime("%H:%M") %> - <%= flight_most_convenient.arrival_time.strftime("%H:%M") %></h1>
         </div>
         <div>
-          <p><%= flight_most_convinient.origin.code %> - <%= flight_most_convinient.destiny.code %></p>
-          <p>Duração: <%= distance_of_time_in_words(flight_most_convinient.departure_time, flight_most_convinient.arrival_time) %></p>
+          <p><%= flight_most_convenient.origin.code %> - <%= flight_most_convenient.destiny.code %></p>
+          <p>Duração: <%= distance_of_time_in_words(flight_most_convenient.departure_time, flight_most_convenient.arrival_time) %></p>
         </div>
         <div class="d-flex flex-row align-items-center justify-content-between">
-          <h2><%= humanized_money_with_symbol(flight_most_convinient.price) %></h2>
-          <p>Assentos Disponíveis: <%= flight_most_convinient.available_seats %></p>
+          <h2><%= humanized_money_with_symbol(flight_most_convenient.price) %></h2>
+          <p>Assentos Disponíveis: <%= flight_most_convenient.available_seats %></p>
         </div>
       </div>
     </div>

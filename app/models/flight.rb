@@ -15,7 +15,14 @@ class Flight < ApplicationRecord
 
   validates :amadeus_id, uniqueness: true
 
-  def duration
-    arrival_time - departure_time
+  after_validation :set_convenience
+
+  private
+
+  def set_convenience
+    duration_component = 1_000 * (arrival_time - departure_time)**2
+    price_component = price_cents**2
+    stops_component = 600_000 * stops.count**2
+    self.convenience = Math.sqrt(duration_component + price_component + stops_component)
   end
 end

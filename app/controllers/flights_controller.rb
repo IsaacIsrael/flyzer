@@ -38,7 +38,7 @@ class FlightsController < ApplicationController
   end
 
   def most_convenient_flight
-    set_flights('((arrival_time - departure_time) / price_cents) ASC').first
+    set_flights('convenience ASC').first
   end
 
   private
