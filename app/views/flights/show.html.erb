@@ -24,9 +24,9 @@
       </div>
     </div>
    <%= simple_form_for [@flight, @order] do |f| %>
-      <%= f.input :passenger_number, label: false,as: :hidden ,:input_html => { :value => "1" } %>
+      <%= f.input :order_seat, label: false,as: :hidden ,:input_html => { :value => "1" } %>
       <% if @flight.available_seats > 0%>
-        <%= f.button :submit, "Pay $#{@flight.price}" ,class: 'submit btn btn-danger',:input_html => { value: "1" }%>
+        <%= f.button :submit, "Pay $#{@flight.price}" ,class: 'submit btn btn-danger',:input_html => { value: "1" }, id:"" %>
       <% end %>
     <% end %>
 </div>

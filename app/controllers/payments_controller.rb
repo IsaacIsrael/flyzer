@@ -10,6 +10,8 @@ class PaymentsController < ApplicationController
                                    description:  "Payment for flight #{@order.flight_sku} for order #{@order.id}",
                                    currency:     @order.amount.currency)
     @order.update(payment: charge.to_json, state: 'paid')
+    flight = Flight.find_by(sku: @order.flight_sku)
+    flight.update(available_seats: flight.available_seats - @order.seat)
     redirect_to root_path
   rescue Stripe::CardError => e
     flash[:alert] = e.message

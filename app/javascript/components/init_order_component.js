@@ -6,8 +6,8 @@ const number = (number) =>  Number.parseInt(number, 10);
 
 const display = (value) => {
   const formInputs = document.querySelector('form');
-  formInputs.querySelector('#order_seat').value = value
-  formInputs.querySelector('input[type=submit]').value = `Pay ${price_unit} ${parseFloat(price * value).toFixed(2)}`;
+  formInputs.querySelector('#order_order_seat').value = value
+  formInputs.querySelector('input[type=submit]').value = `Pay $${parseFloat(price * value /100).toFixed(2)}`;
 
   const minus = document.querySelector('#actions a.minus');
 
