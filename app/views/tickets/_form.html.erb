@@ -1,0 +1,10 @@
+<%= simple_form_for(@ticket) do |f|%>
+  <%= f.input :name %>
+  <%= f.input :number %>
+  <%= f.input :origin %>
+  <%= f.input :destiny %>
+  <%= f.input :departure_time %>
+  <%= f.input :arrival_time %>
+  <%= f.input :company %>
+  <%= f.submit class: "btn btn-primary" %>
+<% end %>
