@@ -20,7 +20,9 @@
         <%= link_to tickets_path do %>
           <li class="list-group-item"><i class="fas fa-plane"></i> <span class="sidebar-options">Meus vôos</span></li>
         <% end %>
-        <li class="list-group-item"><i class="fas fa-search"></i> <span class="sidebar-options">Procurar vôo</span></li>
+        <%= link_to flight_search_path do %>
+          <li class="list-group-item"><i class="fas fa-search"></i> <span class="sidebar-options">Procurar vôo</span></li>
+        <% end %>
         <li class="list-group-item"><i class="fas fa-credit-card"></i> <span class="sidebar-options">Pagamento</span></li>
       </ul>
       <div class="card-body">
