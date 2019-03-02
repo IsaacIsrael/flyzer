@@ -1,35 +1,28 @@
-<section>
-  <div class="container">
-    <div class="card">
-      <h3 class="text-center">My Tickets</h3>
-      <% @tickets.each do |ticket| %>
-        <div>
+<section class="flight-index">
+  <h1 class="text-center">MEUS VÔOS</h1>
+    <% @tickets.each do |ticket| %>
+      <div class="index-card d-flex w-100 flex-row justify-content-center align-items-center">
+        <div class="featured d-flex flex-column justify-content-center align-items-center">
+          <h2 class="text-center"><%= ticket.departure_time.strftime("%d/%m") %></h2>
+          <h5 class="text-center"><%= ticket.number %></h5>
+        </div>
+        <div class="card-body d-flex flex-column">
           <div>
-            <%= ticket.name %>
+            <h1><%= ticket.departure_time.strftime("%H:%M") %> - <%= ticket.arrival_time.strftime("%H:%M") %></h1>
           </div>
           <div>
-            <%= ticket.number %>
+            <p><%= ticket.origin %> - <%= ticket.destiny %></p>
+            <p>Duração: <%= distance_of_time_in_words(ticket.departure_time, ticket.arrival_time) %></p>
           </div>
-          <div>
-            <%= ticket.origin %>
-          </div>
-          <div>
-            <%= ticket.destiny %>
-          </div>
-          <div>
-            <%= ticket.departure_time %>
-          </div>
-          <div>
-            <%= ticket.arrival_time %>
-          </div>
-          <div>
-            <%= ticket.company %>
+          <div class="d-flex flex-row align-items-center justify-content-between">
+            <p>Companhia: <%= ticket.company %></p>
+            <%= link_to "Atualizar", edit_ticket_path(ticket) %>
+            <%= link_to "Excluir", ticket_path(ticket), method: :delete, data: { confirm: "Are you sure?" } %>
           </div>
         </div>
-        <%= link_to "Update", edit_ticket_path(ticket) %>
-        <%= link_to "Delete", ticket_path(ticket), method: :delete, data: { confirm: "Are you sure?" } %>
-      <% end %>
+      </div>
+    <% end %>
+    <div class="text-center">
+      <%= link_to "Adicione um novo vôo", new_ticket_path %>
     </div>
-    <%= link_to "Create a New Ticket", new_ticket_path %>
-  </div>
 </section>
