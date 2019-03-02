@@ -1,9 +1,7 @@
-<section>
-   <div class="container">
-    <div class="card">
-      <h1 class="text-center">Update your Ticket</h1>
-      <%= render 'form', ticket: @ticket %>
-      <%= link_to "Back to all Tickets", tickets_path %>
-    </div>
+<section class="flight-index">
+  <div class="container">
+    <h1 class="text-center">ATUALIZE O SEU VÔO</h1>
+    <%= render 'form', ticket: @ticket %>
+    <%= link_to "Retornar para os Meus Vôos", tickets_path %>
   </div>
 </section>
