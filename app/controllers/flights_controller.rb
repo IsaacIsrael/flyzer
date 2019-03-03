@@ -7,6 +7,10 @@ class FlightsController < ApplicationController
     set_flights
     redirect_to new_flight_path(destiny: @destiny.name) if @flights.count <= 10
   end
+  
+  def show
+    @order = Order.new
+  end
 
   def new
     @destiny = params[:destiny]
@@ -55,12 +59,6 @@ class FlightsController < ApplicationController
                .filter(date: @date, origin_city: @origin.name, destiny_city: @destiny.name)
                .order(criterion)
   end
-
-  def show
-    @order = Order.new
-  end
-
-  private
 
   def find_flight
     @flight = Flight.find(params[:id])
