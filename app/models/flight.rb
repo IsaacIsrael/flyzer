@@ -6,6 +6,7 @@ class Flight < ApplicationRecord
   belongs_to :destiny, class_name: 'Place'
   has_many :stops
   monetize :price_cents
+  has_many :orders
 
   accepts_nested_attributes_for :stops
 

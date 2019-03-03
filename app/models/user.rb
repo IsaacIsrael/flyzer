@@ -4,6 +4,8 @@ class User < ApplicationRecord
   has_many :tickets
   mount_uploader :photo, PhotoUploader
 
+  has_many :orders
+
   devise :omniauthable, :omniauth_providers => [:google_oauth2]
 
   devise :database_authenticatable, :registerable,
