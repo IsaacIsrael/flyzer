@@ -21,6 +21,8 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 
+# payment gem
+gem 'stripe'
 gem 'money-rails'
 gem "geocoder"
 

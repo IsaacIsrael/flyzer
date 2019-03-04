@@ -1,7 +1,10 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  has_many :tickets
   mount_uploader :photo, PhotoUploader
+
+  has_many :orders
 
   devise :omniauthable, :omniauth_providers => [:google_oauth2]
 

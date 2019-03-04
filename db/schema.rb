@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_27_213411) do
+ActiveRecord::Schema.define(version: 2019_03_01_180728) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,11 +40,26 @@ ActiveRecord::Schema.define(version: 2019_02_27_213411) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "price_cents", default: 0, null: false
+    t.float "convenience"
+    t.string "sku"
+
     t.index ["arrival_time"], name: "index_flights_on_arrival_time"
     t.index ["company_id"], name: "index_flights_on_company_id"
     t.index ["departure_time"], name: "index_flights_on_departure_time"
     t.index ["destiny_id"], name: "index_flights_on_destiny_id"
     t.index ["origin_id"], name: "index_flights_on_origin_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string "state"
+    t.string "flight_sku"
+    t.integer "amount_cents", default: 0, null: false
+    t.jsonb "payment"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "seat"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "places", force: :cascade do |t|
@@ -67,6 +82,21 @@ ActiveRecord::Schema.define(version: 2019_02_27_213411) do
     t.datetime "updated_at", null: false
     t.index ["flight_id"], name: "index_stops_on_flight_id"
     t.index ["place_id"], name: "index_stops_on_place_id"
+  end
+
+  create_table "tickets", force: :cascade do |t|
+    t.string "name"
+    t.string "number"
+    t.date "date"
+    t.string "origin"
+    t.string "destiny"
+    t.datetime "departure_time"
+    t.datetime "arrival_time"
+    t.string "company"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_tickets_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -92,6 +122,8 @@ ActiveRecord::Schema.define(version: 2019_02_27_213411) do
   add_foreign_key "flights", "companies"
   add_foreign_key "flights", "places", column: "destiny_id"
   add_foreign_key "flights", "places", column: "origin_id"
+  add_foreign_key "orders", "users"
   add_foreign_key "stops", "flights"
   add_foreign_key "stops", "places"
+  add_foreign_key "tickets", "users"
 end

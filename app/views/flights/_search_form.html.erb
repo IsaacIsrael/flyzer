@@ -1,16 +1,3 @@
 <%= simple_form_for  :search, url: flights_path, method: 'GET'  do |f|%>
-  <%= f.input :country, as: :string , input_html: {value: 'BR'} %>
-  <%= f.input :currency, as: :string , input_html: {value: 'BRL'} %>
-  <%= f.input :locale, as: :string , input_html: {value: 'pt-BR'} %>
-  <%= f.input :originPlace, as: :string , required: true %>
-  <%= f.input :destinationPlace, as: :string , required: true %>
-  <%= f.input :outboundDate, as: :string , required: true %>
-  <%= f.input :adults, as: :string , input_html: {value: '1'} %>
-  <%= f.input :inboundDate, as: :string ,required: false %>
-  <%= f.input :cabinClass, as: :string ,required: false%>
-  <%= f.input :children, as: :string ,required: false%>
-  <%= f.input :infants, as: :string ,required: false%>
-  <%= f.input :includeCarriers, as: :string ,required: false%>
-  <%= f.input :groupPrincing, as: :string ,required: false%>
-  <%= f.submit %>
+  <%= f.input :destiny, as: :string,input_html: { name: 'destiny' }  %>
 <% end %>

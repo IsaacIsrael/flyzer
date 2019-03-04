@@ -1,20 +1,24 @@
-<h2>Log in</h2>
-
+<section class="user-login">
+<h2 class="text-center white-login-text">Bem vindo!</h2>
+<div class="d-flex flex-column w-70 justify-content-center align-items-center text-center p-1">
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="form-inputs">
-    <%= f.input :email,
+    <%= f.input :email, label_html: { class: "white-login-text" },
                 required: false,
                 autofocus: true,
-                input_html: { autocomplete: "email" } %>
-    <%= f.input :password,
+                placeholder: "email@email.com.br",
+                input_html: { autocomplete: "email", class: "log-in text-center" } %>
+    <%= f.input :password, label: "Senha", label_html: { class: "white-login-text"},
                 required: false,
-                input_html: { autocomplete: "current-password" } %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+                input_html: { autocomplete: "current-password", class: "log-in text-center" } %>
+    <%= f.input :remember_me, label: "Lembrar dados", as: :boolean if devise_mapping.rememberable? %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
+  <div class="form-actions index-card">
+    <%= f.button :submit, "Entrar", class: "white-login-text" %>
   </div>
 <% end %>
 
 <%= render "devise/shared/links" %>
+</div>
+</section>
