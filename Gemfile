@@ -21,6 +21,10 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 
+# Sidekiq gems
+gem 'sidekiq'
+gem 'sidekiq-failures', '~> 1.0'
+
 # payment gem
 gem 'stripe'
 gem 'money-rails'
