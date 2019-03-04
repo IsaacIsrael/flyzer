@@ -25,11 +25,12 @@ class User < ApplicationRecord
     end
   end
 
-  after_create :send_status_boarding_email
+  # # To send an email after create an user
+  # after_create :send_status_boarding_email
 
   private
 
-  def send_status_boarding_email
-    UserMailer.status_boarding(self).deliver_now
-  end
+  # def send_status_boarding_email
+  #   UserMailer.status_boarding(self).deliver_now
+  # end
 end
