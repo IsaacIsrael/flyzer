@@ -8,7 +8,7 @@ Bundler.require(*Rails.groups)
 
 module Flyzer
   class Application < Rails::Application
-    config.middleware.insert_before ActionDispatch::Cookies, Rack::SslEnforcer
+    # config.middleware.insert_before ActionDispatch::Cookies, Rack::SslEnforcer
 
     config.generators do |generate|
           generate.assets false
