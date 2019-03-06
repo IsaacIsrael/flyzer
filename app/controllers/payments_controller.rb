@@ -12,7 +12,7 @@ class PaymentsController < ApplicationController
     @order.update(payment: charge.to_json, state: 'paid')
     flight = Flight.find_by(sku: @order.flight_sku)
     flight.update(available_seats: flight.available_seats - @order.seat)
-    redirect_to root_path
+    redirect_to tickets_path
   rescue Stripe::CardError => e
     flash[:alert] = e.message
     redirect_to new_order_payment_path(@order)
