@@ -1,5 +1,8 @@
-.user-login {
-  .white-login-text {
+.user-sign-up {
+  .input-text-color {
+    color: $white;
+  }
+  h2 {
     color: $white;
   }
   .index-card {
@@ -21,5 +24,9 @@
   .google-text {
     margin-right: 20%;
     color: $white;
+  }
+  #sign-up-btn {
+    width: 95%;
+    padding: ($padding / 2);
   }
 }
