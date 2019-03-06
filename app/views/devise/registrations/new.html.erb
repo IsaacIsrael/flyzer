@@ -25,7 +25,7 @@
         placeholder: "******",
         required: true,
         input_html: { autocomplete: "new-password", class: "border-round text-center" } %>
-      <%= f.input :photo, type: "file", id: "imgInp", class: "" %>
+      <%= f.input :photo, type: "file", id: "imgInp" %>
       <%= f.input :photo_cache, as: :hidden %>
       <%= cl_image_tag(@user.photo_url || "non_existing_id.png", class: "avatar-preview", id: "user_profile", :default_image=>"profile_placeholder.png") %>
 

@@ -8,8 +8,8 @@
   .index-card {
     min-height: 5vh;
     max-height: 5vh;
-    min-width: 60vw;
-    max-width: 60vw;
+    min-width: 90vw;
+    max-width: 90vw;
   }
   .featured {
     min-height: 5vh;
@@ -26,7 +26,12 @@
     color: $white;
   }
   #sign-up-btn {
-    width: 95%;
-    padding: ($padding / 2);
+    width: 100%;
+    margin-bottom: 8px;
+  }
+
+  .btn-outline-primary {
+    border-radius: 50px;
+    width: 90%;
   }
 }
