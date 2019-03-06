@@ -36,10 +36,6 @@ gem 'unirest'
 # Flight API
 gem 'amadeus'
 
-#SSL
-# group :production do
-#   gem 'rack-ssl-enforcer'
-# end
 
 group :development do
   gem 'web-console', '>= 3.3.0'
