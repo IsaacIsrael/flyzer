@@ -29,11 +29,21 @@
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   border: white 1px solid;
 }
-
-.avatar-preview {
-  width: 196px;
-  height: 196px;
-  border-radius: 100%;
-  object-fit: cover;
-  padding: $padding;
+.avatar-edit{
+  position: relative;
+  .avatar-preview {
+    width: 196px;
+    height: 196px;
+    border-radius: 100%;
+    object-fit: cover;
+    padding: $padding;
+  }
+  .upload-photo {
+    position: absolute;
+    top: 65px;
+    right: 110px;
+    padding: 8px 8px;
+    background: $white;
+    border-radius: 100%;
+  }
 }

@@ -25,10 +25,12 @@
         placeholder: "******",
         required: true,
         input_html: { autocomplete: "new-password", class: "border-round text-center" } %>
-      <%= f.input :photo, type: "file", id: "imgInp" %>
       <%= f.input :photo_cache, as: :hidden %>
-      <%= cl_image_tag(@user.photo_url || "non_existing_id.png", class: "avatar-preview", id: "user_profile", :default_image=>"profile_placeholder.png") %>
 
+      <div class="avatar-edit">
+        <%= f.input :photo, type: "file", id: "imgInp", input_html: { class: 'invisible' }, label_html: { class: 'upload-photo'}, label: '🖍' %>
+        <%= cl_image_tag(@user.photo_url || "non_existing_id.png", class: "avatar-preview", id: "user_profile", :default_image=>"profile_placeholder.png") %>
+      </div>
     </div>
 
     <div class="form-actions">
