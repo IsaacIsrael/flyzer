@@ -21,6 +21,12 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 
+# Sidekiq gems
+gem 'sidekiq'
+gem 'sidekiq-failures', '~> 1.0'
+
+# payment gem
+gem 'stripe'
 gem 'money-rails'
 gem "geocoder"
 
@@ -30,8 +36,14 @@ gem 'unirest'
 # Flight API
 gem 'amadeus'
 
+#SSL
+# group :production do
+#   gem 'rack-ssl-enforcer'
+# end
+
 group :development do
   gem 'web-console', '>= 3.3.0'
+  gem "letter_opener"
 end
 
 group :development, :test do

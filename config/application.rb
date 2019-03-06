@@ -8,6 +8,8 @@ Bundler.require(*Rails.groups)
 
 module Flyzer
   class Application < Rails::Application
+    # config.middleware.insert_before ActionDispatch::Cookies, Rack::SslEnforcer
+
     config.generators do |generate|
           generate.assets false
           generate.helper false
@@ -20,5 +22,7 @@ module Flyzer
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+    config.action_view.embed_authenticity_token_in_remote_forms = true
+    config.active_job.queue_adapter = :sidekiq
   end
 end

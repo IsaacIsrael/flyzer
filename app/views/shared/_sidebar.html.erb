@@ -1,18 +1,45 @@
   <nav id="sidebar">
     <div class="card">
       <div class="sidebar-photo d-flex justify-content-center align-items-center p-4">
-        <%= cl_image_tag('profile_placeholder.png', class: 'avatar-large') %>
+        <% if user_signed_in? %>
+          <%= cl_image_tag(current_user.photo, class: 'avatar-large') %>
+        <% else %>
+          <%= cl_image_tag('profile_placeholder.png', class: 'avatar-large') %>
+        <% end %>
       </div>
       <div class="card-body">
-        <h5 class="card-title">Henrique Medeiros</h5>
+        <% if user_signed_in? %>
+        <h5 class="card-title"><%= current_user.name %></h5>
+        <% else %>
+          <%= link_to new_user_session_path do%>
+            <h5 class="card-title">Entrar</h5>
+          <% end %>
+        <% end %>
       </div>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item"><i class="fas fa-plane"></i> <span class="sidebar-options">Meus voos</span></li>
-        <li class="list-group-item"><i class="fas fa-search"></i> <span class="sidebar-options">Procurar voo</span></li>
-        <li class="list-group-item"><i class="fas fa-credit-card"></i> <span class="sidebar-options">Pagamento</span></li>
+        <% if user_signed_in? %>
+          <%= link_to tickets_path do %>
+            <li class="list-group-item"><i class="fas fa-plane"></i> <span class="sidebar-options">Meus vôos</span></li>
+          <% end %>
+          <%= link_to new_ticket_path do %>
+            <li class="list-group-item"><i class="fas fa-plus-circle"></i><span class="sidebar-options">Adicionar um vôo</span></li>
+          <% end %>
+          <%= link_to flight_search_path do %>
+            <li class="list-group-item"><i class="fas fa-search"></i> <span class="sidebar-options">Procurar vôo</span></li>
+          <% end %>
+          <li class="list-group-item"><i class="fas fa-credit-card"></i> <span class="sidebar-options">Pagamento</span></li>
+        <% else %>
+          <%= link_to flight_search_path do %>
+            <li class="list-group-item"><i class="fas fa-search"></i> <span class="sidebar-options">Procurar vôo</span></li>
+          <% end %>
+        <% end %>
       </ul>
       <div class="card-body">
-        <a href="#" class="card-link"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        <% if user_signed_in? %>
+          <%= link_to destroy_user_session_path, method: :delete do %>
+            <i class="fas fa-sign-out-alt"></i> Logout</a>
+          <% end %>
+        <% end %>
         <a href="#" class="card-link"><i class="fas fa-question-circle sidebar-options"></i> Ajuda</a>
       </div>
     </div>

@@ -1,0 +1,9 @@
+<%= simple_form_for(@ticket) do |f|%>
+  <%= f.input :number, :label => "E-ticket" %>
+  <%= f.input :origin, :label => "Origem" %>
+  <%= f.input :destiny, :label => "Destino" %>
+  <%= f.input :departure_time, :label => "Data - Horário de Saída" %>
+  <%= f.input :arrival_time, :label => "Data - Horário de Chegada" %>
+  <%= f.input :company, :label => "Companhia Aérea" %>
+  <%= f.submit class: "btn btn-primary" %>
+<% end %>

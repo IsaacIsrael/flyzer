@@ -1,5 +1,4 @@
-<section class="flight-index">
-
+<%= render 'result', flights:@flights %>
   <h1 class="text-center">Flights</h1>
   <p>Cidade: <%=  @city  %></p>
   <p>Data:  <%=  @date  %></p>
@@ -37,7 +36,7 @@
         <p>Duração: <%= distance_of_time_in_words(flight.departure_time, flight.arrival_time) %></p>
       </div>
       <div class="d-flex flex-row align-items-center justify-content-between">
-        <h2><%= humanized_money_with_symbol(flight.price) %></h2>
+        <h2><%= humanized_money_with_symbol(flight.price)%></h2>
         <p>Assentos Disponíveis: <%= flight.available_seats %></p>
       </div>
     </div>

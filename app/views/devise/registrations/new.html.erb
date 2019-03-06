@@ -4,6 +4,10 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
+    <%= f.input :name,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "name" }%>
     <%= f.input :email,
                 required: true,
                 autofocus: true,
@@ -17,7 +21,9 @@
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :photo, type: "file", id: "imgInp" %>
     <%= f.input :photo_cache, as: :hidden %>
-    <%= cl_image_tag( @user.photo_url || "non_existing_id.png", :default_image => "profile_placeholder.png", class: "profilepreview", id: "user_profile") %>
+    <%# cl_image_tag( @user.photo_url || "non_existing_id.png", :default_image => "profile_placeholder.png", class: "profilepreview", id: "user_profile") %>
+    <%= cl_image_tag(@user.photo_url || "non_existing_id.png", class: "avatar-preview", id: "user_profile", :default_image=>"profile_placeholder.png") %>
+
   </div>
 
   <div class="form-actions">

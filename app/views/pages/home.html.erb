@@ -9,8 +9,18 @@
                   <%= image_tag('airplane.svg') %>
                 </div>
                 <div class="card-text">
-                  <h1 class="text-center">Bom dia,</h1>
-                  <h1 class="card-special-text">Henrique!</h1>
+                  <% if user_signed_in? %>
+                    <h1 class="text-center">Boa tarde,</h1>
+                    <% if current_user.name %>
+                      <h1 class="card-special-text"><%= current_user.name %>!</h1>
+                    <% else %>
+                      <h1 class="card-special-text"><%= current_user.email %>!</h1>
+                    <% end %>
+                  <% else %>
+                    <%= link_to new_user_session_path do%>
+                      <h5 class="card-title">Entrar</h5>
+                    <% end %>
+                  <% end %>
                 </div>
               </div>
             </div>
