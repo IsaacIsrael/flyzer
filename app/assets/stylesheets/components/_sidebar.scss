@@ -40,3 +40,16 @@ a[data-toggle="collapse"] {
 .overflow {
   overflow: hidden;
 }
+.profile-edit {
+  position: relative;
+}
+#edit-pen-btn {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  padding: 4px 4px;
+  box-shadow: 1px 1px #888888;
+  background: $white;
+  border-radius: 100%;
+  text-decoration: none;
+}
