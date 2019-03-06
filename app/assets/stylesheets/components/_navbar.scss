@@ -2,7 +2,7 @@
 .navbar {
   background: $background-grey;
   transition: all 0.3s ease;
-  height: 70px;
+  height: $navbar-height;
   padding: 0px 30px;
   display: flex;
   align-items: center;

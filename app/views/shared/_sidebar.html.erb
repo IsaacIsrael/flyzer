@@ -20,13 +20,22 @@
         <% end %>
       </div>
       <ul class="list-group list-group-flush">
-        <%= link_to tickets_path do %>
-          <li class="list-group-item"><i class="fas fa-plane"></i> <span class="sidebar-options">Meus vôos</span></li>
+        <% if user_signed_in? %>
+          <%= link_to tickets_path do %>
+            <li class="list-group-item"><i class="fas fa-plane"></i> <span class="sidebar-options">Meus vôos</span></li>
+          <% end %>
+          <%= link_to new_ticket_path do %>
+            <li class="list-group-item"><i class="fas fa-plus-circle"></i><span class="sidebar-options">Adicionar um vôo</span></li>
+          <% end %>
+          <%= link_to flight_search_path do %>
+            <li class="list-group-item"><i class="fas fa-search"></i> <span class="sidebar-options">Procurar vôo</span></li>
+          <% end %>
+          <li class="list-group-item"><i class="fas fa-credit-card"></i> <span class="sidebar-options">Pagamento</span></li>
+        <% else %>
+          <%= link_to flight_search_path do %>
+            <li class="list-group-item"><i class="fas fa-search"></i> <span class="sidebar-options">Procurar vôo</span></li>
+          <% end %>
         <% end %>
-        <%= link_to flight_search_path do %>
-          <li class="list-group-item"><i class="fas fa-search"></i> <span class="sidebar-options">Procurar vôo</span></li>
-        <% end %>
-        <li class="list-group-item"><i class="fas fa-credit-card"></i> <span class="sidebar-options">Pagamento</span></li>
       </ul>
       <div class="card-body">
         <% if user_signed_in? %>
