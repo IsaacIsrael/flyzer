@@ -8,7 +8,7 @@ class FlightsController < ApplicationController
     set_flights
     redirect_to new_flight_path(destiny: @destiny.name) if @flights.count <= 10
   end
-  
+
   def show
     @order = Order.new
   end
@@ -51,7 +51,7 @@ class FlightsController < ApplicationController
   def set_variables
     # I18n.transliterate(request.location.city) ||
     @origin = City.find_by(name: "New York")
-    @destiny = City.find_by(name:params[:destiny] || "Sao Paulo")
+    @destiny = City.find_by(name: params[:destiny].capitalize || "Sao Paulo")
     @date = DateTime.now
   end
 
