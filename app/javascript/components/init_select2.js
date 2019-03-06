@@ -3,7 +3,8 @@ import 'select2';
 const initSelect2 = () => {
   $('.select2').select2({
     openOnEnter: false,
-    theme: "bootstrap"
+    theme: "bootstrap",
+    placeholder: "where are we traveling"
   });
 };
 
