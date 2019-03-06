@@ -2,42 +2,51 @@
   <div class="index-card d-flex flex-column justify-content-center align-items-center">
     <div class="flight-info text-center">
       <h1 class="flight-info-route"><%= @flight.origin.code %> - <%= @flight.destiny.code %></h1>
+      <p class="flight-info-duration"><%= @flight.origin.city %> - <%= @flight.destiny.city %></p>
       <h2 class="flight-info-time"><%= @flight.departure_time.strftime("%H:%M") %> - <%= @flight.arrival_time.strftime("%H:%M") %>
         <% if @flight.departure_time.day != @flight.arrival_time.day %>
           <span class="flight-plus-one"> <sup>+1</sup></span>
         <% end %></h2>
       <p class="flight-info-duration">Duração: <%= distance_of_time_in_words(@flight.departure_time, @flight.arrival_time) %></p>
-    </div>
-    <div class="flight-stops">
+      <% if @flight.stops.count >= 1 %>
+        <div class="stops" data-toggle="collapse" data-target="#stops-info" aria-expanded="false" aria-controls="stops-info">
+         <p><i class="fas fa-plus-circle fa-lg"></i></p>
+        </div>
+          <div class="collapse" id="stops-info">
+            <!-- <div class="index-card"> -->
+              <% @flight.stops.each_with_index do | stop, index | %>
+                <h4 class="stops-header"> <%= index + 1 %></h4>
+                <p><i class="fas fa-plane fa-xs"></i> <%= stop.place.name %></p>
+
+                <p class="stops-footer"><i class="fas fa-clock fa-xs"></i> Duração aproximada: <%= Time.at(stop.duration).utc.strftime("%H") %> horas </p>
+              <% end %>
+      <!--     </div> -->
+        </div>
+     <% end %>
+  </div>
+      </div>
+  <div class="index-card reverse-style d-flex flex-column justify-content-center align-items-center">
+    <h1>PAGAMENTO</h1>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<!--     <div class="flight-stops">
        <div class="timeline">
           <div class="container">
-            <span class="left">
-              <h2>2018</h2>
-            </span>
             <span class="right">
               <p>123456</p>
             </span>
           </div>
         <div class="container">
-          <span class="left">
-            <h2>2017</h2>
-          </span>
           <span class="right">
             <p>123456</p>
           </span>
         </div>
         <div class="container">
-          <span class="left">
-            <h2>2016</h2>
-          </span>
           <span class="right">
             <p>123456</p>
           </span>
         </div>
       </div>
-    </div>
-  </div>
-  <div class="index-card reverse-style d-flex flex-column justify-content-center align-items-center">
-    <h1>PAGAMENTO</h1>
-  </div>
-</section>
+    </div> -->
