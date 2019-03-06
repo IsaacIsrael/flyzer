@@ -26,7 +26,7 @@
     <% end %>
     <%= f.input :photo, type: "file", id: "imgInp" %>
     <%= f.input :photo_cache, as: :hidden %>
-    <%= cl_image_tag( @user.photo_url || "non_existing_id.png", :default_image => "profile_placeholder.png"  ,crop: :fill, class: "imagepreview", id: "user_profile") %>
+    <%= cl_image_tag( @user.photo_url || "non_existing_id.png", :default_image => "profile_placeholder.png"  ,crop: :fill, class: "avatar-large", id: "user_profile") %>
   </div>
 
   <div class="form-actions">
