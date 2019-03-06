@@ -1,0 +1,11 @@
+#search{
+  .container{
+    height: calc(100vh - #{$navbar-height});
+  }
+  .icon{
+    overflow: hidden;
+  }
+  .icon svg{
+    width: 100%
+  }
+}

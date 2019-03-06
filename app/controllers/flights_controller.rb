@@ -1,12 +1,14 @@
 class FlightsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index new load search]
+
   before_action :set_variables, only: %i[index show load]
-  helper_method :cheapest_flight, :fastest_flight, :most_convenient_flight
   before_action :find_flight, only: %i[show]
+
+  helper_method :cheapest_flight, :fastest_flight, :most_convenient_flight
 
   def index
     set_flights
-    redirect_to new_flight_path(destiny: @destiny.name) if @flights.count <= 10
+    redirect_to new_flight_path(destiny: params[:destiny]) if @flights.count <= 10
   end
 
   def show
@@ -20,7 +22,7 @@ class FlightsController < ApplicationController
   def load
     search = {
       origin: @origin&.code,
-      destination: @destiny&.code,
+      destination: @destiny.code,
       departureDate: @date.strftime("%Y-%m-%d"),
       currency: 'BRL'
     }
@@ -32,7 +34,9 @@ class FlightsController < ApplicationController
     end
   end
 
-  def search; end
+  def search
+    @cities = City.all
+  end
 
   def cheapest_flight
     set_flights('price_cents ASC, (arrival_time - departure_time) ASC').first
@@ -49,9 +53,9 @@ class FlightsController < ApplicationController
   private
 
   def set_variables
-    # I18n.transliterate(request.location.city) ||
+    #  @origin = City.find_by(name: I18n.transliterate(request.location.city))
     @origin = City.find_by(name: "New York")
-    @destiny = City.find_by(name: params[:destiny].capitalize || "Sao Paulo")
+    @destiny = City.find(params[:destiny])
     @date = DateTime.now
   end
 
