@@ -6,6 +6,10 @@
     <%= f.error_notification %>
 
     <div class="form-inputs">
+      <div class="avatar-edit">
+        <%= f.input :photo, type: "file", id: "imgInp", input_html: { class: 'invisible' }, label_html: { class: 'upload-photo'}, label: '🖍' %>
+        <%= cl_image_tag(@user.photo_url || "non_existing_id.png", class: "avatar-preview", id: "user_profile", :default_image=>"profile_placeholder.png") %>
+      </div>
       <%= f.input :name, label_html: { class: "input-text-color" },
         required: true,
         autofocus: true,
@@ -26,11 +30,6 @@
         required: true,
         input_html: { autocomplete: "new-password", class: "border-round text-center" } %>
       <%= f.input :photo_cache, as: :hidden %>
-
-      <div class="avatar-edit">
-        <%= f.input :photo, type: "file", id: "imgInp", input_html: { class: 'invisible' }, label_html: { class: 'upload-photo'}, label: '🖍' %>
-        <%= cl_image_tag(@user.photo_url || "non_existing_id.png", class: "avatar-preview", id: "user_profile", :default_image=>"profile_placeholder.png") %>
-      </div>
     </div>
 
     <div class="form-actions">
