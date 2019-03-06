@@ -24,6 +24,7 @@ class Flight < ApplicationRecord
     duration_component = 1_000 * (arrival_time - departure_time)**2
     price_component = price_cents**2
     stops_component = 600_000 * stops.count**2
+
     self.convenience = Math.sqrt(duration_component + price_component + stops_component)
   end
 end
