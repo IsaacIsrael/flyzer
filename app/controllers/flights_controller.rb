@@ -8,7 +8,7 @@ class FlightsController < ApplicationController
     set_flights
     redirect_to new_flight_path(destiny: @destiny.name) if @flights.count <= 10
   end
-  
+
   def show
     @order = Order.new
   end
@@ -32,7 +32,9 @@ class FlightsController < ApplicationController
     end
   end
 
-  def search; end
+  def search
+    @cities = City.all
+  end
 
   def cheapest_flight
     set_flights('price_cents ASC, (arrival_time - departure_time) ASC').first
