@@ -5,7 +5,10 @@
 
 .avatar-large {
   width: 128px;
+  height: 128px;
   border-radius: 100%;
+  object-fit: cover;
+
 }
 
 .avatar-bordered {
