@@ -9,15 +9,14 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", registrations: 'users/registrations' }
 
-  resources :flights, only: [:index,:new] do
+  get 'flights/search', to:'flights#search', as: :flight_search
+  resources :flights, only: [:index,:new, :show] do
     resources :orders, only: [:show, :create] do
       resources :payments, only: [:new, :create]
     end
   end
 
-  get 'flight/:id', to: 'flights#show'
   get 'flights/load', to:'flights#load', as: :flight_load
-  get 'flights/search', to:'flights#search', as: :flight_search
 
   resources :tickets
 end

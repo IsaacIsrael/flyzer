@@ -1,83 +1,91 @@
 <div class="flight-index">
   <h1 class="text-center"><%= @origin.code %> - <%= @destination.code %></h1>
   <% flight_cheapest = cheapest_flight %>
-    <h3 class="text-center p-1">NOSSAS ESCOLHAS</h3>
-    <div class="index-card d-flex w-100 flex-row justify-content-center align-items-center">
-      <div class="featured d-flex flex-column justify-content-center align-items-center">
-        <p class="text-center special-featured"><i class="fas fa-plus fa-xs"></i> Barato</p>
-        <i class="fas fa-dollar-sign fa-3x p-4"></i>
+    <h3 class="text-center p-1">OUR PICKS</h3>
+    <%= link_to flight_path(flight_cheapest) do %>
+      <div class="index-card d-flex w-100 flex-row justify-content-center align-items-center">
+        <div class="featured d-flex flex-column justify-content-center align-items-center">
+          <p class="text-center special-featured"><i class="fas fa-plus fa-xs"></i> Cheapest</p>
+          <i class="fas fa-dollar-sign fa-3x p-4"></i>
+        </div>
+        <div class="card-body d-flex flex-column">
+          <div>
+            <h1><%= flight_cheapest.departure_time.strftime("%H:%M") %> - <%= flight_cheapest.arrival_time.strftime("%H:%M") %></h1>
+          </div>
+          <div>
+            <p><%= flight_cheapest.origin.code %> - <%= flight_cheapest.destiny.code %></p>
+            <p>Duration: <%= distance_of_time_in_words(flight_cheapest.departure_time, flight_cheapest.arrival_time) %></p>
+          </div>
+          <div class="d-flex flex-row align-items-center justify-content-between">
+            <h2><%= humanized_money_with_symbol(flight_cheapest.price) %></h2>
+            <p>Available Seats: <%= flight_cheapest.available_seats %></p>
+          </div>
+        </div>
       </div>
-      <div class="card-body d-flex flex-column">
-        <div>
-          <h1><%= flight_cheapest.departure_time.strftime("%H:%M") %> - <%= flight_cheapest.arrival_time.strftime("%H:%M") %></h1>
-        </div>
-        <div>
-          <p><%= flight_cheapest.origin.code %> - <%= flight_cheapest.destiny.code %></p>
-          <p>Duração: <%= distance_of_time_in_words(flight_cheapest.departure_time, flight_cheapest.arrival_time) %></p>
-        </div>
-        <div class="d-flex flex-row align-items-center justify-content-between">
-          <h2><%= humanized_money_with_symbol(flight_cheapest.price) %></h2>
-          <p>Assentos Disponíveis: <%= flight_cheapest.available_seats %></p>
-        </div>
-      </div>
-    </div>
+    <% end %>
     <% flight_shortest = fastest_flight %>
-    <div class="index-card d-flex w-100 flex-row justify-content-center align-items-center">
-      <div class="featured d-flex flex-column justify-content-center align-items-center">
-        <p class="text-center special-featured"><i class="fas fa-plus fa-xs"></i> Rapido</p>
-        <i class="fas fa-clock fa-3x p-4"></i>
+    <%= link_to flight_path(flight_shortest) do %>
+      <div class="index-card d-flex w-100 flex-row justify-content-center align-items-center">
+        <div class="featured d-flex flex-column justify-content-center align-items-center">
+          <p class="text-center special-featured"><i class="fas fa-plus fa-xs"></i> Shortest</p>
+          <i class="fas fa-clock fa-3x p-4"></i>
+        </div>
+        <div class="card-body d-flex flex-column">
+          <div>
+            <h1><%= flight_shortest.departure_time.strftime("%H:%M") %> - <%= flight_shortest.arrival_time.strftime("%H:%M") %></h1>
+          </div>
+          <div>
+            <p><%= flight_shortest.origin.code %> - <%= flight_shortest.destiny.code %></p>
+            <p>Duration: <%= distance_of_time_in_words(flight_shortest.departure_time, flight_shortest.arrival_time) %></p>
+          </div>
+          <div class="d-flex flex-row align-items-center justify-content-between">
+            <h2><%= humanized_money_with_symbol(flight_shortest.price) %></h2>
+            <p>Available Seats: <%= flight_shortest.available_seats %></p>
+          </div>
+        </div>
       </div>
-      <div class="card-body d-flex flex-column">
-        <div>
-          <h1><%= flight_shortest.departure_time.strftime("%H:%M") %> - <%= flight_shortest.arrival_time.strftime("%H:%M") %></h1>
-        </div>
-        <div>
-          <p><%= flight_shortest.origin.code %> - <%= flight_shortest.destiny.code %></p>
-          <p>Duração: <%= distance_of_time_in_words(flight_shortest.departure_time, flight_shortest.arrival_time) %></p>
-        </div>
-        <div class="d-flex flex-row align-items-center justify-content-between">
-          <h2><%= humanized_money_with_symbol(flight_shortest.price) %></h2>
-          <p>Assentos Disponíveis: <%= flight_shortest.available_seats %></p>
-        </div>
-      </div>
-    </div>
+    <% end %>
     <% flight_most_convenient = most_convenient_flight %>
-    <div class="index-card d-flex w-100 flex-row justify-content-center align-items-center">
-      <div class="featured d-flex flex-column justify-content-center align-items-center">
-        <p class="text-center special-featured"><i class="fas fa-plus fa-xs"></i> Conveniente</p>
-        <i class="fas fa-star fa-3x p-4"></i>
+    <%= link_to flight_path(flight_most_convenient) do %>
+      <div class="index-card d-flex w-100 flex-row justify-content-center align-items-center">
+        <div class="featured d-flex flex-column justify-content-center align-items-center">
+          <p class="text-center special-featured"><i class="fas fa-plus fa-xs"></i> Convenient</p>
+          <i class="fas fa-star fa-3x p-4"></i>
+        </div>
+        <div class="card-body d-flex flex-column">
+          <div>
+            <h1><%= flight_most_convenient.departure_time.strftime("%H:%M") %> - <%= flight_most_convenient.arrival_time.strftime("%H:%M") %></h1>
+          </div>
+          <div>
+            <p><%= flight_most_convenient.origin.code %> - <%= flight_most_convenient.destiny.code %></p>
+            <p>Duration: <%= distance_of_time_in_words(flight_most_convenient.departure_time, flight_most_convenient.arrival_time) %></p>
+          </div>
+          <div class="d-flex flex-row align-items-center justify-content-between">
+            <h2><%= humanized_money_with_symbol(flight_most_convenient.price) %></h2>
+            <p>Available Seats: <%= flight_most_convenient.available_seats %></p>
+          </div>
+        </div>
       </div>
-      <div class="card-body d-flex flex-column">
-        <div>
-          <h1><%= flight_most_convenient.departure_time.strftime("%H:%M") %> - <%= flight_most_convenient.arrival_time.strftime("%H:%M") %></h1>
-        </div>
-        <div>
-          <p><%= flight_most_convenient.origin.code %> - <%= flight_most_convenient.destiny.code %></p>
-          <p>Duração: <%= distance_of_time_in_words(flight_most_convenient.departure_time, flight_most_convenient.arrival_time) %></p>
-        </div>
-        <div class="d-flex flex-row align-items-center justify-content-between">
-          <h2><%= humanized_money_with_symbol(flight_most_convenient.price) %></h2>
-          <p>Assentos Disponíveis: <%= flight_most_convenient.available_seats %></p>
-        </div>
-      </div>
-    </div>
+    <% end %>
 
-    <h3 class="text-center p-4">OUTROS VÔOS</h3>
+    <h3 class="text-center p-4">MORE FLIGHTS</h3>
     <% @flights.each do |flight| %>
-    <div class="index-card d-flex w-100 ">
-      <div class="card-body d-flex flex-column">
-        <div>
-          <h1><%= flight.departure_time.strftime("%H:%M") %> - <%= flight.arrival_time.strftime("%H:%M") %></h1>
-        </div>
-        <div>
-          <p><%= flight.origin.code %> - <%= flight.destiny.code %></p>
-          <p>Duração: <%= distance_of_time_in_words(flight.departure_time, flight.arrival_time) %></p>
-        </div>
-        <div class="d-flex flex-row align-items-center justify-content-between">
-          <h2><%= humanized_money_with_symbol(flight.price) %></h2>
-          <p>Assentos Disponíveis: <%= flight.available_seats %></p>
+    <%= link_to flight_path(flight) do %>
+      <div class="index-card d-flex w-100 ">
+        <div class="card-body d-flex flex-column">
+          <div>
+            <h1><%= flight.departure_time.strftime("%H:%M") %> - <%= flight.arrival_time.strftime("%H:%M") %></h1>
+          </div>
+          <div>
+            <p><%= flight.origin.code %> - <%= flight.destiny.code %></p>
+            <p>Duration: <%= distance_of_time_in_words(flight.departure_time, flight.arrival_time) %></p>
+          </div>
+          <div class="d-flex flex-row align-items-center justify-content-between">
+            <h2><%= humanized_money_with_symbol(flight.price) %></h2>
+            <p>Available Seats: <%= flight.available_seats %></p>
+          </div>
         </div>
       </div>
-    </div>
+    <% end %>
   <% end %>
 </div>
