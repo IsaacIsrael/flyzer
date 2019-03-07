@@ -1,4 +1,4 @@
-const initSelect2SubmitOnEnter = () => {
+const initSelect2Submit = () => {
   const element = document.getElementById('search');
   if(element){
      $('.select2-selection').on('keyup', function (e) {
@@ -9,4 +9,4 @@ const initSelect2SubmitOnEnter = () => {
   }
 };
 
-export {initSelect2SubmitOnEnter};
+export {initSelect2Submit};
