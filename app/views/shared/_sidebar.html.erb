@@ -2,7 +2,10 @@
     <div class="card">
       <div class="sidebar-photo d-flex justify-content-center align-items-center p-4">
         <% if user_signed_in? %>
-          <%= cl_image_tag(current_user.photo, class: 'avatar-large') %>
+          <div class="profile-edit">
+            <%= link_to '🖍', edit_user_registration_path, id: "edit-pen-btn" %>
+            <%= cl_image_tag(current_user.photo, class: 'avatar-large') %>
+          </div>
         <% else %>
           <%= cl_image_tag('profile_placeholder.png', class: 'avatar-large') %>
         <% end %>

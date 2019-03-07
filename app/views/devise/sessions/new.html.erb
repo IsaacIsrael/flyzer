@@ -7,10 +7,11 @@
                 required: false,
                 autofocus: true,
                 placeholder: "email@email.com.br",
-                input_html: { autocomplete: "email", class: "log-in text-center" } %>
+                input_html: { autocomplete: "email", class: "border-round text-center" } %>
     <%= f.input :password, label: "Senha", label_html: { class: "white-login-text"},
                 required: false,
-                input_html: { autocomplete: "current-password", class: "log-in text-center" } %>
+                placeholder: "******",
+                input_html: { autocomplete: "current-password", class: "border-round text-center" } %>
     <%= f.input :remember_me, label: "Lembrar dados", as: :boolean if devise_mapping.rememberable? %>
   </div>
 

@@ -1,0 +1,11 @@
+#load{
+  .icon{
+    height: calc(100vh - #{$navbar-height});
+  }
+  .ld.ld-ring.ld-spin {
+    color:white;
+    width: 70px;
+    height: 70px;
+  }
+}
+
