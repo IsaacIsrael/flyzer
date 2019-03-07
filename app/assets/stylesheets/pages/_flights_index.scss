@@ -17,9 +17,18 @@
     font-size: ($font-size * 0.75);
     font-weight: 100;
   }
+  a {
+    text-decoration: none;
+    color: $white;
+  }
   // .index-card {
   //   background-image: linear-gradient(to left, rgba(83, 94, 127,0.4),rgba(64, 75, 108,0.4),rgba(64, 75, 108,0.4),rgba(64, 75, 108,0.4)), url(gplay.png);
   // }
+  .reverse-style {
+    background: $background-grey;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, $background-grey, $backgroud-light-grey, $backgroud-light-grey, $backgroud-light-grey);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, $background-grey, $backgroud-light-grey, $backgroud-light-grey, $backgroud-light-grey); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  }
   .card-body {
     display: flex;
     justify-content: center;

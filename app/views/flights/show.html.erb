@@ -1,35 +1,56 @@
- <div id="order" class="card form-container">
-  <div class="header">
-    <div class="header-row">
-      <div class="big-bold" id="price" data-amount-cents="<%= @flight.price_cents %>" >
-        <ul>
-          <li><h1><%= @flight.company.name %></h1></li>
-          <li>From: <%= @flight.origin.name %></li>
-          <li>To: <%= @flight.destiny.name %></li>
-          <li>Departure time: <%= @flight.departure_time %></li>
-          <li>Arrival time: <%= @flight.arrival_time %></li>
-  <% if @flight.available_seats > 0%>
-          <li>Price per seat: <%= @flight.price %></li>
-          <li><p>Avalible seats: <span id="available_seat" data-limit="<%= @flight.available_seats %>"><%= @flight.available_seats %></span></p></li>
-        </ul>
+<section class="flights-show">
+  <div class="container">
+    <div class="index-card d-flex flex-column justify-content-center align-items-center p-3">
+      <div class="flight-info text-center">
+        <h1 class="flight-info-route"><%= @flight.origin.code %> - <%= @flight.destiny.code %></h1>
+        <p class="flight-info-duration"><%= @flight.origin.city %> - <%= @flight.destiny.city %></p>
+        <h2 class="flight-info-time"><%= @flight.departure_time.strftime("%H:%M") %> - <%= @flight.arrival_time.strftime("%H:%M") %>
+          <% if @flight.departure_time.day != @flight.arrival_time.day %>
+            <span class="flight-plus-one"> <sup>+1</sup></span>
+          <% end %></h2>
+        <p class="flight-info-duration">Duration: <%= distance_of_time_in_words(@flight.departure_time, @flight.arrival_time) %></p>
+        <% if @flight.stops.count >= 1 %>
+          <div class="stops" data-toggle="collapse" data-target="#stops-info" aria-expanded="false" aria-controls="stops-info">
+           <p><i class="fas fa-plus-circle fa-lg"></i></p>
+          </div>
+            <div class="collapse" id="stops-info">
+              <% @flight.stops.each_with_index do | stop, index | %>
+                <h4 class="stops-header">Stop <%= index + 1 %></h4>
+                <p><i class="fas fa-plane fa-xs"></i> <%= stop.place.name %></p>
+
+                <p class="stops-footer"><i class="fas fa-clock fa-xs"></i> Duration: <%= Time.at(stop.duration).utc.strftime("%H") %> hours </p>
+              <% end %>
+            </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="index-card reverse-style d-flex flex-column justify-content-center align-items-center p-3 text-center" id="order">
+        <div id="price" data-amount-cents="<%= @flight.price_cents %>" >
+        </div>
+        <div class="flight-info">
+        <h1 class="flight-info-time"><%= humanized_money_with_symbol(@flight.price) %></h1>
+        <h2>for seat</h2>
+        <p>Available seats: <span id="available_seat" data-limit="<%= @flight.available_seats %>"><%= @flight.available_seats %></span></p>
+        </div>
+        <div class="flex-between">
+        <% if @flight.available_seats > 0 %>
+          <p>Buy Now!</p>
+          <div class="actions" id="actions">
+            <a href="#/" class="btn incrementer minus text-center" data-limit="<%= @flight.available_seats %>" disabled data-offset="-1"><i class="fas fa-minus-circle fa-lg"></i></a>
+            <span id="counter" data-count="1">1</span>
+            <a href="#/" class="btn incrementer plus text-center" data-limit="<%= @flight.available_seats %>" data-offset="1"><i class="fas fa-plus-circle fa-lg"></i></a>
+          </div>
+        <% else %>
+          <p style="color: red">Sorry, no more seats available for this flight...</p>
+        <% end %>
+        </div>
+        <%= simple_form_for [@flight, @order] do |f| %>
+          <%= f.input :order_seat, label: false,as: :hidden ,:input_html => { :value => "1" } %>
+          <% if @flight.available_seats > 0 %>
+            <%= f.button :submit, "Pay #{humanized_money_with_symbol(@flight.price)}" ,class: 'submit btn-header',:input_html => { value: "1" }, id:"buy-button" %>
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>
-  <div class="flex-between">
-    <span>Buy Seats:</span>
-    <div class="actions" id="actions">
-      <a href="#/" class="btn btn-round incrementer minus" disabled data-offset="-1">-</a>
-      <span id="counter" data-count="1">1</span>
-      <a href="#/" class="btn btn-round incrementer plus" data-offset="1">+</a>
-    </div>
-    <% else %>
-    <p style="color: red">Sorry, no more seats available for this flight...</p>
-    <% end %>
-  </div>
-  <%= simple_form_for [@flight, @order] do |f| %>
-  <%= f.input :order_seat, label: false,as: :hidden ,:input_html => { :value => "1" } %>
-  <% if @flight.available_seats > 0%>
-  <%= f.button :submit, "Pay $#{@flight.price}" ,class: 'submit btn btn-danger',:input_html => { value: "1" }, id:"" %>
-  <% end %>
-  <% end %>
-</div>
+</section>
