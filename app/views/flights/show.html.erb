@@ -24,42 +24,27 @@
     </div>
   </div>
   <div class="index-card reverse-style d-flex flex-column justify-content-center align-items-center">
-    <div id="order" class="form-container">
-      <div class="header">
-        <div class="header-row">
-          <div class="big-bold" id="price" data-amount-cents="<%= @flight.price_cents %>" >
-            <ul>
-              <li><h1><%= @flight.company.name %></h1></li>
-              <li>From: <%= @flight.origin.name %></li>
-              <li>To: <%= @flight.destiny.name %></li>
-              <li>Departure time: <%= @flight.departure_time %></li>
-              <li>Arrival time: <%= @flight.arrival_time %></li>
-      <% if @flight.available_seats > 0 %>
-              <li>
-                Price per seat: <%= @flight.price %>
-              </li>
-              <li>
-                <p>Avalible seats: <span id="available_seat" data-limit="<%= @flight.available_seats %>"><%= @flight.available_seats %></span></p>
-              </li>
-            </ul>
-          </div>
-        </div>
+    <div id="order">
+      <div id="price" data-amount-cents="<%= @flight.price_cents %>" >
       </div>
+      <h1><%= humanized_money_with_symbol(@flight.price) %>/Seat</h1>
+      <p>Avalible seats: <span id="available_seat" data-limit="<%= @flight.available_seats %>"><%= @flight.available_seats %></span></p>
       <div class="flex-between">
+      <% if @flight.available_seats > 0 %>
         <span>Buy Seats:</span>
         <div class="actions" id="actions">
-          <a href="#/" class="btn btn-round incrementer minus" disabled data-offset="-1">-</a>
+          <a href="#/" class="btn btn-round incrementer minus" data-limit="<%= @flight.available_seats %>" disabled data-offset="-1">-</a>
           <span id="counter" data-count="1">1</span>
-          <a href="#/" class="btn btn-round incrementer plus" data-offset="1">+</a>
+          <a href="#/" class="btn btn-round incrementer plus" data-limit="<%= @flight.available_seats %>" data-offset="1">+</a>
         </div>
-    <% else %>
+      <% else %>
         <p style="color: red">Sorry, no more seats available for this flight...</p>
-    <% end %>
+      <% end %>
       </div>
       <%= simple_form_for [@flight, @order] do |f| %>
         <%= f.input :order_seat, label: false,as: :hidden ,:input_html => { :value => "1" } %>
         <% if @flight.available_seats > 0 %>
-          <%= f.button :submit, "Pay $#{@flight.price}" ,class: 'submit btn btn-danger',:input_html => { value: "1" }, id:"" %>
+          <%= f.button :submit, "Pay #{humanized_money_with_symbol(@flight.price)}" ,class: 'submit btn btn-danger',:input_html => { value: "1" }, id:"" %>
         <% end %>
       <% end %>
     </div>
