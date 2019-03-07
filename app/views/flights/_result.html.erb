@@ -70,20 +70,22 @@
 
     <h3 class="text-center p-4">MORE FLIGHTS</h3>
     <% @flights.each do |flight| %>
-    <div class="index-card d-flex w-100 ">
-      <div class="card-body d-flex flex-column">
-        <div>
-          <h1><%= flight.departure_time.strftime("%H:%M") %> - <%= flight.arrival_time.strftime("%H:%M") %></h1>
-        </div>
-        <div>
-          <p><%= flight.origin.code %> - <%= flight.destiny.code %></p>
-          <p>Duration: <%= distance_of_time_in_words(flight.departure_time, flight.arrival_time) %></p>
-        </div>
-        <div class="d-flex flex-row align-items-center justify-content-between">
-          <h2><%= humanized_money_with_symbol(flight.price) %></h2>
-          <p>Available Seats: <%= flight.available_seats %></p>
+    <%= link_to flight_path(flight) do %>
+      <div class="index-card d-flex w-100 ">
+        <div class="card-body d-flex flex-column">
+          <div>
+            <h1><%= flight.departure_time.strftime("%H:%M") %> - <%= flight.arrival_time.strftime("%H:%M") %></h1>
+          </div>
+          <div>
+            <p><%= flight.origin.code %> - <%= flight.destiny.code %></p>
+            <p>Duration: <%= distance_of_time_in_words(flight.departure_time, flight.arrival_time) %></p>
+          </div>
+          <div class="d-flex flex-row align-items-center justify-content-between">
+            <h2><%= humanized_money_with_symbol(flight.price) %></h2>
+            <p>Available Seats: <%= flight.available_seats %></p>
+          </div>
         </div>
       </div>
-    </div>
+    <% end %>
   <% end %>
 </section>
