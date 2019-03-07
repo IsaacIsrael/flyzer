@@ -3,9 +3,10 @@
     <%= f.input :number, :label => "E-ticket", input_html: { autocomplete: "E-ticket", class: "border-round text-center" } %>
     <%= f.input :origin, :label => "Origin", input_html: { autocomplete: "Origin", class: "border-round text-center" } %>
     <%= f.input :destiny, :label => "Destiny", input_html: { autocomplete: "Destiny", class: "border-round text-center" } %>
-    <%= f.input :departure_time, :label => "Data - Horário de Saída" %>
-    <%= f.input :arrival_time, :label => "Data - Horário de Chegada" %>
+    <%= f.input :departure_time, as: :string, required: false, input_html: {class: "datepicker"} %>
+    <%= f.input :arrival_time, as: :string, required: false, input_html: {class: "datepicker"} %>
     <%= f.input :company, :label => "Airline", input_html: { autocomplete: "Airline", class: "border-round text-center" } %>
+
     <%= f.submit class: "btn btn-primary border-round" %>
   <% end %>
 </div>
