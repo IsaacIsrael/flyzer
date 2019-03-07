@@ -40,8 +40,8 @@ ActiveRecord::Schema.define(version: 2019_03_04_203450) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "price_cents", default: 0, null: false
-    t.string "sku"
     t.float "convenience"
+    t.string "sku"
     t.index ["arrival_time"], name: "index_flights_on_arrival_time"
     t.index ["company_id"], name: "index_flights_on_company_id"
     t.index ["departure_time"], name: "index_flights_on_departure_time"
