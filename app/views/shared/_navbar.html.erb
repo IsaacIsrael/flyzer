@@ -3,10 +3,9 @@
     <i class="fas fa-bars menu"></i>
   </div>
   <div class="d-block d-sm-none">
-    <p class="navbar-title">Flyzer</p>
-  </div>
-  <div class="navbar-left d-block d-sm-none">
-  <i class="fas fa-qrcode menu"></i>
+    <%= link_to root_path do %>
+      <%= cl_image_tag 'https://res.cloudinary.com/dln8hlx3o/image/upload/c_thumb,w_200,g_face/v1551965932/logo_border.png', class: "logo-flyzer" %>
+    <% end %>
   </div>
 </nav>
 
