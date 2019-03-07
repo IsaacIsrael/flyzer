@@ -4,7 +4,7 @@
   <%= f.input :destiny, :label => "Destino", collection: @places, input_html: { class: "select2 places" }, :label_method => :info %>
   <%= f.input :departure_time, :label => "Data - Horário de Saída" %>
   <%= f.input :arrival_time, :label => "Data - Horário de Chegada" %>
-  <%= f.input :company, :label => "Companhia Aérea" %>
+  <%= f.input :company, :label => "Companhia Aérea",collection: @company, input_html: { class: "select2 companies" } %>
   <%= f.submit class: "btn btn-primary" %>
 <% end %>
 
