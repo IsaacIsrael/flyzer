@@ -1,22 +1,22 @@
 <section class="user-login">
-<h2 class="text-center white-login-text">Bem vindo!</h2>
+<h2 class="text-center white-login-text">Welcome!</h2>
 <div class="d-flex flex-column w-70 justify-content-center align-items-center text-center p-1">
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="form-inputs">
-    <%= f.input :email, label_html: { class: "white-login-text" },
+    <%= f.input :email, label: "E-mail", label_html: { class: "white-login-text" },
                 required: false,
                 autofocus: true,
-                placeholder: "email@email.com.br",
+                placeholder: "email@mail.com",
                 input_html: { autocomplete: "email", class: "border-round text-center" } %>
-    <%= f.input :password, label: "Senha", label_html: { class: "white-login-text"},
+    <%= f.input :password, label: "Password", label_html: { class: "white-login-text"},
                 required: false,
                 placeholder: "******",
                 input_html: { autocomplete: "current-password", class: "border-round text-center" } %>
-    <%= f.input :remember_me, label: "Lembrar dados", as: :boolean if devise_mapping.rememberable? %>
+    <%= f.input :remember_me, label: "Remember me", as: :boolean if devise_mapping.rememberable? %>
   </div>
 
   <div class="form-actions index-card">
-    <%= f.button :submit, "Entrar", class: "white-login-text" %>
+    <%= f.button :submit, "Sing In", class: "white-login-text" %>
   </div>
 <% end %>
 

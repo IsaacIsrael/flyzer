@@ -10,27 +10,27 @@
           <i class="fab fa-google"></i>
         </div>
         <div class="google-text">
-          Entrar com <span style="font-weight: 300">Google</span>
+          Sign in <span style="font-weight: 300">Google</span>
         </div>
       </div>
     <% end %>
   <% end %>
 
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-  <%= link_to "Esqueceu sua senha?", new_password_path(resource_name) %>
+  <%= link_to "Forgot your password?", new_password_path(resource_name) %>
 <% end %>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
   <%= link_to new_registration_path(resource_name) do %>
     <div class="wrapper d-flex flex-column justify-content-center align-items-center">
       <div class="white-login-text">
-        Ainda não tem uma conta?
+        Not registred yet?
       </div>
       <div class="card-icon p-2">
         <%= image_tag('login.svg') %>
       </div>
       <div class="white-login-text">
-        Crie agora!
+        Sign up now!
       </div>
     </div>
   <% end %>
