@@ -1,0 +1,18 @@
+.ticket-new{
+  .btn {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .btn-outline-primary {
+    border-radius: 50px;
+  }
+  label{
+    color: $white;
+  }
+  h3 {
+    color: $white;
+  }
+  #new_ticket > div.form-group.select.required > span > span.selection > span {
+    border-radius: 50px;
+  }
+}

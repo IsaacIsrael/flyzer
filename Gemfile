@@ -10,7 +10,7 @@ gem 'rails', '5.2.2'
 gem 'redis'
 gem 'cloudinary', '~> 1.9.1'
 gem 'carrierwave', '~> 1.2'
-
+gem 'datetime_picker_input'
 gem 'omniauth-google-oauth2', '~> 0.2.2'
 gem 'google-api-client', '~> 0.13.6'
 
