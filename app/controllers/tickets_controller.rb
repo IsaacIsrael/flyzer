@@ -6,11 +6,11 @@ class TicketsController < ApplicationController
   end
 
   def show
-
   end
 
   def new
     @ticket = Ticket.new
+    @places = Place.all
     @company = Company.all
   end
 
