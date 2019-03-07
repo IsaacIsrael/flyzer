@@ -1,9 +1,11 @@
-<%= simple_form_for(@ticket) do |f|%>
-  <%= f.input :number, :label => "E-ticket" %>
-  <%= f.input :origin, :label => "Origem" %>
-  <%= f.input :destiny, :label => "Destino" %>
-  <%= f.input :departure_time, :label => "Data - Horário de Saída" %>
-  <%= f.input :arrival_time, :label => "Data - Horário de Chegada" %>
-  <%= f.input :company, :label => "Companhia Aérea" %>
-  <%= f.submit class: "btn btn-primary" %>
-<% end %>
+ <div class="form-inputs">
+  <%= simple_form_for(@ticket) do |f|%>
+    <%= f.input :number, :label => "E-ticket", input_html: { autocomplete: "E-ticket", class: "border-round text-center" } %>
+    <%= f.input :origin, :label => "Origin", input_html: { autocomplete: "Origin", class: "border-round text-center" } %>
+    <%= f.input :destiny, :label => "Destiny", input_html: { autocomplete: "Destiny", class: "border-round text-center" } %>
+    <%= f.input :departure_time, :label => "Data - Horário de Saída" %>
+    <%= f.input :arrival_time, :label => "Data - Horário de Chegada" %>
+    <%= f.input :company, :label => "Airline", input_html: { autocomplete: "Airline", class: "border-round text-center" } %>
+    <%= f.submit class: "btn btn-primary border-round" %>
+  <% end %>
+</div>
