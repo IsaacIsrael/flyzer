@@ -11,7 +11,7 @@
             <h1><%= ticket.departure_time.strftime("%H:%M") %> - <%= ticket.arrival_time.strftime("%H:%M") %></h1>
           </div>
           <div>
-            <p><%= ticket.origin %> - <%= ticket.destiny %></p>
+            <p><%= ticket.origin %> - <%= ticket.destination %></p>
             <p>Duração: <%= distance_of_time_in_words(ticket.departure_time, ticket.arrival_time) %></p>
           </div>
           <div class="d-flex flex-row align-items-center justify-content-between">

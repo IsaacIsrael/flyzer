@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2019_03_04_203450) do
     t.integer "available_seats"
     t.bigint "company_id"
     t.bigint "origin_id"
-    t.bigint "destiny_id"
+    t.bigint "destination_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "price_cents", default: 0, null: false
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 2019_03_04_203450) do
     t.index ["arrival_time"], name: "index_flights_on_arrival_time"
     t.index ["company_id"], name: "index_flights_on_company_id"
     t.index ["departure_time"], name: "index_flights_on_departure_time"
-    t.index ["destiny_id"], name: "index_flights_on_destiny_id"
+    t.index ["destination_id"], name: "index_flights_on_destination_id"
     t.index ["origin_id"], name: "index_flights_on_origin_id"
   end
 
@@ -84,17 +84,20 @@ ActiveRecord::Schema.define(version: 2019_03_04_203450) do
   end
 
   create_table "tickets", force: :cascade do |t|
-    t.string "name"
     t.string "number"
-    t.date "date"
-    t.string "origin"
-    t.string "destiny"
     t.datetime "departure_time"
     t.datetime "arrival_time"
-    t.string "company"
+    t.bigint "origin_id"
+    t.bigint "destination_id"
+    t.bigint "company_id"
     t.bigint "user_id"
+    t.bigint "flight_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_tickets_on_company_id"
+    t.index ["destination_id"], name: "index_tickets_on_destination_id"
+    t.index ["flight_id"], name: "index_tickets_on_flight_id"
+    t.index ["origin_id"], name: "index_tickets_on_origin_id"
     t.index ["user_id"], name: "index_tickets_on_user_id"
   end
 
@@ -120,10 +123,14 @@ ActiveRecord::Schema.define(version: 2019_03_04_203450) do
   end
 
   add_foreign_key "flights", "companies"
-  add_foreign_key "flights", "places", column: "destiny_id"
+  add_foreign_key "flights", "places", column: "destination_id"
   add_foreign_key "flights", "places", column: "origin_id"
   add_foreign_key "orders", "users"
   add_foreign_key "stops", "flights"
   add_foreign_key "stops", "places"
+  add_foreign_key "tickets", "companies"
+  add_foreign_key "tickets", "flights"
+  add_foreign_key "tickets", "places", column: "destination_id"
+  add_foreign_key "tickets", "places", column: "origin_id"
   add_foreign_key "tickets", "users"
 end

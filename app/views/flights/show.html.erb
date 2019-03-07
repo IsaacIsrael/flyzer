@@ -5,7 +5,7 @@
         <ul>
           <li><h1><%= @flight.company.name %></h1></li>
           <li>From: <%= @flight.origin.name %></li>
-          <li>To: <%= @flight.destiny.name %></li>
+          <li>To: <%= @flight.destination.name %></li>
           <li>Departure time: <%= @flight.departure_time %></li>
           <li>Arrival time: <%= @flight.arrival_time %></li>
   <% if @flight.available_seats > 0%>

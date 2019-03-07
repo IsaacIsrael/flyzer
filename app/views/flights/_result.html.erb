@@ -12,7 +12,7 @@
           <h1><%= flight_cheapest.departure_time.strftime("%H:%M") %> - <%= flight_cheapest.arrival_time.strftime("%H:%M") %></h1>
         </div>
         <div>
-          <p><%= flight_cheapest.origin.code %> - <%= flight_cheapest.destiny.code %></p>
+          <p><%= flight_cheapest.origin.code %> - <%= flight_cheapest.destination.code %></p>
           <p>Duração: <%= distance_of_time_in_words(flight_cheapest.departure_time, flight_cheapest.arrival_time) %></p>
         </div>
         <div class="d-flex flex-row align-items-center justify-content-between">
@@ -32,7 +32,7 @@
           <h1><%= flight_shortest.departure_time.strftime("%H:%M") %> - <%= flight_shortest.arrival_time.strftime("%H:%M") %></h1>
         </div>
         <div>
-          <p><%= flight_shortest.origin.code %> - <%= flight_shortest.destiny.code %></p>
+          <p><%= flight_shortest.origin.code %> - <%= flight_shortest.destination.code %></p>
           <p>Duração: <%= distance_of_time_in_words(flight_shortest.departure_time, flight_shortest.arrival_time) %></p>
         </div>
         <div class="d-flex flex-row align-items-center justify-content-between">
@@ -52,7 +52,7 @@
           <h1><%= flight_most_convenient.departure_time.strftime("%H:%M") %> - <%= flight_most_convenient.arrival_time.strftime("%H:%M") %></h1>
         </div>
         <div>
-          <p><%= flight_most_convenient.origin.code %> - <%= flight_most_convenient.destiny.code %></p>
+          <p><%= flight_most_convenient.origin.code %> - <%= flight_most_convenient.destination.code %></p>
           <p>Duração: <%= distance_of_time_in_words(flight_most_convenient.departure_time, flight_most_convenient.arrival_time) %></p>
         </div>
         <div class="d-flex flex-row align-items-center justify-content-between">
@@ -70,7 +70,7 @@
           <h1><%= flight.departure_time.strftime("%H:%M") %> - <%= flight.arrival_time.strftime("%H:%M") %></h1>
         </div>
         <div>
-          <p><%= flight.origin.code %> - <%= flight.destiny.code %></p>
+          <p><%= flight.origin.code %> - <%= flight.destination.code %></p>
           <p>Duração: <%= distance_of_time_in_words(flight.departure_time, flight.arrival_time) %></p>
         </div>
         <div class="d-flex flex-row align-items-center justify-content-between">

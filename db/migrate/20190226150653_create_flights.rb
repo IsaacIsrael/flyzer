@@ -7,7 +7,7 @@ class CreateFlights < ActiveRecord::Migration[5.2]
       t.integer :available_seats
       t.references :company, foreign_key: true
       t.references :origin, index: true, foreign_key:  {to_table: :places}
-      t.references :destiny, index: true, foreign_key: {to_table: :places}
+      t.references :destination, index: true, foreign_key: {to_table: :places}
 
       t.timestamps
     end
