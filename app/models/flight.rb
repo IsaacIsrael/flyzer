@@ -14,7 +14,7 @@ class Flight < ApplicationRecord
   scope :origin_city, ->(origin) { joins("JOIN places  ON places.id =  flights.origin_id").where(places: { city: origin }) }
   scope :destination_city, ->(destination) { joins("JOIN places d ON d.id =  flights.destination_id").where("d.city = ?", destination ) }
 
-  validates :amadeus_id, uniqueness: true
+  validates :sku, uniqueness: true
 
   after_validation :set_convenience
 

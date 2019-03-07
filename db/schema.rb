@@ -30,7 +30,6 @@ ActiveRecord::Schema.define(version: 2019_03_04_203450) do
   end
 
   create_table "flights", force: :cascade do |t|
-    t.string "amadeus_id"
     t.datetime "departure_time"
     t.datetime "arrival_time"
     t.integer "available_seats"

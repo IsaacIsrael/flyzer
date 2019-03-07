@@ -1,7 +1,6 @@
 class CreateFlights < ActiveRecord::Migration[5.2]
   def change
     create_table :flights do |t|
-      t.string :amadeus_id
       t.datetime :departure_time, index: true
       t.datetime :arrival_time, index: true
       t.integer :available_seats
