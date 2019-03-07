@@ -3,7 +3,9 @@
     <i class="fas fa-bars menu"></i>
   </div>
   <div class="d-block d-sm-none">
-    <%= cl_image_tag 'https://res.cloudinary.com/dln8hlx3o/image/upload/ar_1:1,b_rgb:ffffff,bo_5px_solid_rgb:2441b0,c_fill,g_auto,r_max,w_1000/v1551910439/flyzer.jpg', class: "logo-flyzer" %>
+    <%= link_to root_path do %>
+      <%= cl_image_tag 'https://res.cloudinary.com/dln8hlx3o/image/upload/c_thumb,w_200,g_face/v1551965932/logo_border.png', class: "logo-flyzer" %>
+    <% end %>
   </div>
 </nav>
 
