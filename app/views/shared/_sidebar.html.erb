@@ -15,25 +15,25 @@
         <h5 class="card-title"><%= current_user.name %></h5>
         <% else %>
           <%= link_to new_user_session_path do%>
-            <h5 class="card-title">Entrar</h5>
+            <h5 class="card-title">Login</h5>
           <% end %>
         <% end %>
       </div>
       <ul class="list-group list-group-flush">
         <% if user_signed_in? %>
           <%= link_to tickets_path do %>
-            <li class="list-group-item"><i class="fas fa-plane"></i> <span class="sidebar-options">Meus vôos</span></li>
+            <li class="list-group-item"><i class="fas fa-plane"></i> <span class="sidebar-options">My Flights</span></li>
           <% end %>
           <%= link_to new_ticket_path do %>
-            <li class="list-group-item"><i class="fas fa-plus-circle"></i><span class="sidebar-options">Adicionar um vôo</span></li>
+            <li class="list-group-item"><i class="fas fa-plus-circle"></i><span class="sidebar-options">Add a Flight</span></li>
           <% end %>
           <%= link_to flight_search_path do %>
-            <li class="list-group-item"><i class="fas fa-search"></i> <span class="sidebar-options">Procurar vôo</span></li>
+            <li class="list-group-item"><i class="fas fa-search"></i> <span class="sidebar-options">Search Flights</span></li>
           <% end %>
-          <li class="list-group-item"><i class="fas fa-credit-card"></i> <span class="sidebar-options">Pagamento</span></li>
+          <li class="list-group-item"><i class="fas fa-credit-card"></i> <span class="sidebar-options">Payment</span></li>
         <% else %>
           <%= link_to flight_search_path do %>
-            <li class="list-group-item"><i class="fas fa-search"></i> <span class="sidebar-options">Procurar vôo</span></li>
+            <li class="list-group-item"><i class="fas fa-search"></i> <span class="sidebar-options">Search Flights</span></li>
           <% end %>
         <% end %>
       </ul>
@@ -43,7 +43,7 @@
             <i class="fas fa-sign-out-alt"></i> Logout</a>
           <% end %>
         <% end %>
-        <a href="#" class="card-link"><i class="fas fa-question-circle sidebar-options"></i> Ajuda</a>
+        <a href="#" class="card-link"><i class="fas fa-question-circle sidebar-options"></i> Help</a>
       </div>
     </div>
   </nav>
