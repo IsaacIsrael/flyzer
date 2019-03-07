@@ -17,6 +17,10 @@
     font-size: ($font-size * 0.75);
     font-weight: 100;
   }
+  a {
+    text-decoration: none;
+    color: $white;
+  }
   // .index-card {
   //   background-image: linear-gradient(to left, rgba(83, 94, 127,0.4),rgba(64, 75, 108,0.4),rgba(64, 75, 108,0.4),rgba(64, 75, 108,0.4)), url(gplay.png);
   // }
