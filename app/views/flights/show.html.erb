@@ -34,7 +34,7 @@
         </div>
         <div class="flex-between">
         <% if @flight.available_seats > 0 %>
-          <p>Buy Seats:</p>
+          <p>Buy Now!</p>
           <div class="actions" id="actions">
             <a href="#/" class="btn incrementer minus text-center" data-limit="<%= @flight.available_seats %>" disabled data-offset="-1"><i class="fas fa-minus-circle fa-lg"></i></a>
             <span id="counter" data-count="1">1</span>
