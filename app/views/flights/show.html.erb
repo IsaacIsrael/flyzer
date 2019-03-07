@@ -1,9 +1,10 @@
+
 <section class="flights-show">
   <div class="container">
     <div class="index-card d-flex flex-column justify-content-center align-items-center p-3">
       <div class="flight-info text-center">
-        <h1 class="flight-info-route"><%= @flight.origin.code %> - <%= @flight.destiny.code %></h1>
-        <p class="flight-info-duration"><%= @flight.origin.city %> - <%= @flight.destiny.city %></p>
+        <h1 class="flight-info-route"><%= @flight.origin.code %> - <%= @flight.destination.code %></h1>
+        <p class="flight-info-duration"><%= @flight.origin.city %> - <%= @flight.destination.city %></p>
         <h2 class="flight-info-time"><%= @flight.departure_time.strftime("%H:%M") %> - <%= @flight.arrival_time.strftime("%H:%M") %>
           <% if @flight.departure_time.day != @flight.arrival_time.day %>
             <span class="flight-plus-one"> <sup>+1</sup></span>

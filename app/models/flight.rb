@@ -3,7 +3,7 @@ class Flight < ApplicationRecord
 
   belongs_to :company
   belongs_to :origin, class_name: 'Place'
-  belongs_to :destiny, class_name: 'Place'
+  belongs_to :destination, class_name: 'Place'
   has_many :stops
   monetize :price_cents
   has_many :orders
@@ -12,9 +12,9 @@ class Flight < ApplicationRecord
 
   scope :date, ->(date) { where("departure_time BETWEEN ? AND ?", date, date.end_of_day + 1.day) }
   scope :origin_city, ->(origin) { joins("JOIN places  ON places.id =  flights.origin_id").where(places: { city: origin }) }
-  scope :destination_city, ->(destination) { joins("JOIN places d ON d.id =  flights.destiny_id").where("d.city = ?", destination ) }
+  scope :destination_city, ->(destination) { joins("JOIN places d ON d.id =  flights.destination_id").where("d.city = ?", destination ) }
 
-  validates :amadeus_id, uniqueness: true
+  validates :sku, uniqueness: true
 
   after_validation :set_convenience
 

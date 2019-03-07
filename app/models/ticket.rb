@@ -1,5 +1,9 @@
 class Ticket < ApplicationRecord
   belongs_to :user
+  belongs_to :flight, optional: true
+  belongs_to :company
+  belongs_to :origin, class_name: 'Place'
+  belongs_to :destination, class_name: 'Place'
 
-  validates :number, :origin, :destiny, :departure_time, :arrival_time, :company, presence: true
+  validates :number, :departure_time, :arrival_time, presence: true
 end

@@ -17,15 +17,15 @@ class AmadeusService
     arrival = stops.last["flightSegment"]["arrival"]
     carrier = stops.first["flightSegment"]["carrierCode"]
     {
-      amadeus_id: item["id"],
       departure_time: departure["at"],
       arrival_time: arrival["at"],
       available_seats: stops.map { |flight| flight["pricingDetailPerAdult"]["availability"] }.min,
       origin_id: Place.find { |origin| origin.code == departure["iataCode"] }&.id,
-      destiny_id: Place.find { |destination| destination.code == arrival["iataCode"] }&.id,
+      destination_id: Place.find { |destination| destination.code == arrival["iataCode"] }&.id,
       company_id:  Company.find { |company| company.iata == carrier }&.id,
       price: item["offerItems"][0]["price"].values.map(&:to_f).inject(0, :+).to_money,
-      stops_attributes: build_stops_flight_offers(stops)
+      stops_attributes: build_stops_flight_offers(stops),
+      sku: item["id"],
     }
   end
 

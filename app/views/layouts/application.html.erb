@@ -6,6 +6,7 @@
     <title>Flyzer</title>
     <%= csrf_meta_tags %>
 
+    <%= javascript_pack_tag 'jquery_config' %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
@@ -18,7 +19,7 @@
         <%= yield %>
       </div>
     </div>
-    <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
+    <%= javascript_include_tag 'application' %>
   </body>
 </html>

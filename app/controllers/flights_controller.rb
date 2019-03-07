@@ -1,5 +1,4 @@
 class FlightsController < ApplicationController
-
   skip_before_action :authenticate_user!, only: %i[index new load search show]
 
   before_action :set_variables, only: %i[index load]
