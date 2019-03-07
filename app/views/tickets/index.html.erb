@@ -6,7 +6,7 @@
           <div class="featured d-flex flex-column justify-content-center align-items-center">
             <h2 class="text-center"><%= ticket.departure_time.strftime("%d/%m") %></h2>
               <%= link_to edit_ticket_path(ticket) do %>
-                <i class="fas fa-edit fa-lg"></i>
+                <i class="fas fa-edit fa-lg new-flight"></i>
               <% end %>
           </div>
           <div class="card-body d-flex flex-column">
@@ -14,7 +14,7 @@
               <h5><%= ticket.origin %> <i class="fas fa-plane fa-xs"></i> <%= ticket.destiny %></h5>
               <h5 class="mt-n1"><%= ticket.departure_time.strftime("%H:%M") %> - <%= ticket.arrival_time.strftime("%H:%M") %></h5>
               <%= link_to ticket_path(ticket), method: :delete, data: { confirm: "Are you sure?" }, class:"mt-n4" do %>
-                <i class="fas fa-plus delete "></i>
+                <i class="fas fa-plus delete new-flight-delete"></i>
               <% end %>
             </div>
             <div class="d-flex flex-row align-items-center justify-content-between">
