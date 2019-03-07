@@ -1,5 +1,5 @@
-<section class="flight-index">
-  <h1 class="text-center"><%= @origin.code %> - <%= @destiny.code %></h1>
+<div class="flight-index">
+  <h1 class="text-center"><%= @origin.code %> - <%= @destination.code %></h1>
   <% flight_cheapest = cheapest_flight %>
     <h3 class="text-center p-1">OUR PICKS</h3>
     <%= link_to flight_path(flight_cheapest) do %>
@@ -88,4 +88,4 @@
       </div>
     <% end %>
   <% end %>
-</section>
+</div>
