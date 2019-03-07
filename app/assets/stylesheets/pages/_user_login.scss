@@ -5,7 +5,7 @@
   .index-card {
     min-height: 5vh;
     max-height: 5vh;
-    min-width: 90vw;
+    min-width: 93vw;
     max-width: 100vw;
   }
   .featured {
@@ -25,7 +25,10 @@
   form {
     width: 95%;
   }
-  #new_user > div.form-actions.index-card {
+  .index-card .align-items-center {
+    width: 95%;
+  }
+  #content > section > div > a:nth-child(2) > div {
     width: 95%;
   }
 }
