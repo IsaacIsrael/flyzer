@@ -1,4 +1,4 @@
- <div class="form-inputs">
+ <div id="ticket" class="form-inputs">
   <%= simple_form_for(@ticket) do |f|%>
     <%= f.input :number, :label => "E-ticket", input_html: { class: "border-round text-center" } %>
     <%= f.input :origin, :label => "Origin",  collection: @places, input_html: { class: "select2 places border-round text-center" }, :label_method => :info %>

@@ -12,4 +12,7 @@
   h3 {
     color: $white;
   }
+  #new_ticket > div.form-group.select.required > span > span.selection > span {
+    border-radius: 50px;
+  }
 }
