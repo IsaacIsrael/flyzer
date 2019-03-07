@@ -1,10 +1,10 @@
 <%= simple_form_for @ticket, html: { id: "ticket" } do |f|%>
   <%= f.input :number, :label => "E-ticket" %>
-  <%= f.input :origin, :label => "Origem", collection: @places, input_html: { class: "select2 places" }, :label_method => :info %>
-  <%= f.input :destination, :label => "Destino", collection: @places, input_html: { class: "select2 places" }, :label_method => :info %>
+  <%= f.input :origin_id, :label => "Origem", collection: @places, input_html: { class: "select2 places" }, :label_method => :info %>
+  <%= f.input :destination_id, :label => "Destino", collection: @places, input_html: { class: "select2 places" }, :label_method => :info %>
   <%= f.input :departure_time, :label => "Data - Horário de Saída" %>
   <%= f.input :arrival_time, :label => "Data - Horário de Chegada" %>
-  <%= f.input :company, :label => "Companhia Aérea",collection: @company, input_html: { class: "select2 companies" } %>
+  <%= f.input :company_id, :label => "Companhia Aérea",collection: @company, input_html: { class: "select2 companies" } %>
   <%= f.submit class: "btn btn-primary" %>
 <% end %>
 
