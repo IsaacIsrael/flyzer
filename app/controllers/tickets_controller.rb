@@ -1,17 +1,16 @@
 class TicketsController < ApplicationController
   before_action :ticket_find, only: %i[show edit update destroy]
+  before_action :set_variable, only: %i[new edit]
 
   def index
     @tickets = Ticket.all
   end
 
   def show
-
   end
 
   def new
     @ticket = Ticket.new
-    @company = Company.all
   end
 
   def create
@@ -27,7 +26,6 @@ class TicketsController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
@@ -44,6 +42,11 @@ class TicketsController < ApplicationController
   end
 
   private
+
+  def set_variable
+    @places = Place.all
+    @company = Company.all
+  end
 
   def ticket_params
     params.require(:ticket).permit(:name, :number, :origin, :destination, :departure_time, :arrival_time, :company)

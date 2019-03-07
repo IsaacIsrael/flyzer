@@ -8,7 +8,6 @@ import { initSidebar } from "../components/init_sidebar";
 import { initDisplayValue } from '../components/init_order_component'
 import { initLoad } from "../components/init_load";
 import { initSelect2 } from '../components/init_select2';
-import { initSelect2Submit } from '../components/init_select2_submit';
 
 
 initReadUrl();
@@ -16,4 +15,3 @@ initSidebar();
 initDisplayValue();
 initLoad();
 initSelect2();
-initSelect2Submit();
