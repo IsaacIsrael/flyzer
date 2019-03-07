@@ -25,7 +25,7 @@
     background: linear-gradient(to right, $background-grey, $backgroud-light-grey, $backgroud-light-grey, $backgroud-light-grey); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   }
   #stops-info {
-    min-width: 100vw;
+    min-width: 100%;
     transition: all 0.3s ease;
     .stops-header {
       color: $white;
@@ -43,5 +43,22 @@
       margin: $padding ($padding * 0.75);
       padding: ($padding * 0.5);
     }
+  }
+  #order {
+    padding: 0 auto;
+    color: $white;
+    h1 {
+      font-size: ($font-size * 2);
+    }
+    h2 {
+      font-size: ($font-size * 0.75);
+    }
+  }
+  #buy-button {
+    min-width: 45vw;
+    max-width: 45vw;
+  }
+  .incrementer {
+    color: $white;
   }
 }

@@ -4,3 +4,10 @@
   color: $black;
   font-size: $font-size;
 }
+.btn-round {
+  border: 1px solid;
+  border-radius: 50%;
+  width: 40px;
+  color: $white;
+  height: 40px;
+}
