@@ -12,7 +12,7 @@ class Flight < ApplicationRecord
 
   scope :date, ->(date) { where("departure_time BETWEEN ? AND ?", date, date.end_of_day + 1.day) }
   scope :origin_city, ->(origin) { joins("JOIN places  ON places.id =  flights.origin_id").where(places: { city: origin }) }
-  scope :destiny_city, ->(destiny) { joins("JOIN places d ON d.id =  flights.destiny_id").where("d.city = ?", destiny ) }
+  scope :destination_city, ->(destination) { joins("JOIN places d ON d.id =  flights.destiny_id").where("d.city = ?", destination ) }
 
   validates :amadeus_id, uniqueness: true
 

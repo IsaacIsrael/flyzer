@@ -1,5 +1,5 @@
-<section class="flight-index">
-  <h1 class="text-center"><%= @origin.code %> - <%= @destiny.code %></h1>
+<div class="flight-index">
+  <h1 class="text-center"><%= @origin.code %> - <%= @destination.code %></h1>
   <% flight_cheapest = cheapest_flight %>
     <h3 class="text-center p-1">NOSSAS ESCOLHAS</h3>
     <div class="index-card d-flex w-100 flex-row justify-content-center align-items-center">
@@ -80,4 +80,4 @@
       </div>
     </div>
   <% end %>
-</section>
+</div>
