@@ -1,0 +1,64 @@
+.flights-show {
+  .index-card {
+    max-height: 100vh;
+  }
+  .flight-info {
+    color: $white;
+    .flight-info-route {
+      font-weight: 300;
+      font-size: ($font-size * 3);
+    }
+    .flight-info-time {
+      color: $coral-red;
+      .flight-plus-one {
+        font-weight: bold;
+        font-size: ($font-size * 1.75);
+      }
+    }
+    .flight-info-duration {
+      font-size: ($font-size * 0.75);
+    }
+  }
+  .reverse-style {
+    background: $background-grey;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, $background-grey, $backgroud-light-grey, $backgroud-light-grey, $backgroud-light-grey);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, $background-grey, $backgroud-light-grey, $backgroud-light-grey, $backgroud-light-grey); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  }
+  #stops-info {
+    min-width: 100%;
+    transition: all 0.3s ease;
+    .stops-header {
+      color: $white;
+      border-width: 0 0 thin 0;
+      border-style: solid;
+      border-color: $white;
+      border-radius: inherit;
+      padding: 0;
+    }
+    h4 {
+      font-size: $font-size;
+      font-weight: 300;
+    }
+    p {
+      margin: $padding ($padding * 0.75);
+      padding: ($padding * 0.5);
+    }
+  }
+  #order {
+    padding: 0 auto;
+    color: $white;
+    h1 {
+      font-size: ($font-size * 2);
+    }
+    h2 {
+      font-size: ($font-size * 0.75);
+    }
+  }
+  #buy-button {
+    min-width: 45vw;
+    max-width: 45vw;
+  }
+  .incrementer {
+    color: $white;
+  }
+}
