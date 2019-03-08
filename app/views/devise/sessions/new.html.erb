@@ -1,5 +1,5 @@
 <section class="user-login">
-<h2 class="text-center white-login-text">Welcome!</h2>
+<h2 class="text-center white-login-text"><strong>Welcome!</strong></h2>
 <div class="d-flex flex-column w-70 justify-content-center align-items-center text-center p-1">
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="form-inputs">
@@ -12,7 +12,9 @@
                 required: false,
                 placeholder: "******",
                 input_html: { autocomplete: "current-password", class: "border-round text-center" } %>
-    <%= f.input :remember_me, label: "Remember me", as: :boolean if devise_mapping.rememberable? %>
+    <div class="custom-control custom-checkbox">
+      <%= f.input :remember_me, label: "Remember me", label_html: { class: "custom-control-label"}, as: :boolean if devise_mapping.rememberable? %>
+    </div>
   </div>
 
   <div class="form-actions index-card">
