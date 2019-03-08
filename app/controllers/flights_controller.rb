@@ -4,11 +4,11 @@ class FlightsController < ApplicationController
   before_action :set_variables, only: %i[index load]
   before_action :find_flight, only: %i[show]
 
-  helper_method :cheapest_flight, :fastest_flight, :most_convenient_flight
+  helper_method :cheapest_flight, :fastest_flight, :most_convenient_flight, :url_params
 
   def index
     set_flights
-    redirect_to new_flight_path(destination: params[:destination]) if @flights.count <= 10
+    redirect_to new_flight_path(url_params) if @flights.count <= 10
   end
 
   def show
@@ -16,6 +16,7 @@ class FlightsController < ApplicationController
   end
 
   def new
+    @ticket = params[:ticket]
     @destination = params[:destination]
   end
 
@@ -27,6 +28,7 @@ class FlightsController < ApplicationController
       currency: 'BRL'
     }
     Flight.create(AmadeusService.flight_offers(search))
+
     set_flights
     respond_to do |format|
       format.html
@@ -36,6 +38,10 @@ class FlightsController < ApplicationController
 
   def search
     @cities = City.all.order('name')
+  end
+
+  def url_params
+    @ticket ? { ticket: @ticket } : { destination: @destination }
   end
 
   def cheapest_flight
@@ -53,16 +59,17 @@ class FlightsController < ApplicationController
   private
 
   def set_variables
+    @ticket = params[:ticket] ? Ticket.find(params[:ticket]) : nil
+
     #  @origin = City.find_by(name: I18n.transliterate(request.location.city))
-    @origin = City.find_by(name: "New York")
-    @destination = City.find(params[:destination])
-    @date = DateTime.now
+    @origin = @ticket&.origin || City.find_by(name: "New York")
+    @destination = @ticket&.destination || City.find(params[:destination])
+    @date = @ticket&.departure_time || DateTime.now
   end
 
   def set_flights(criterion = 'departure_time ASC')
-    @flights = Flight
-               .filter(date: @date, origin_city: @origin.name, destination_city: @destination.name)
-               .order(criterion)
+    filter = params[:ticket] ? { date: @date, origin_name: @origin.name, destination_name: @destination.name } : {date: @date, origin_city: @origin.name, destination_city: @destination.name}
+    @flights = Flight.filter(filter).order(criterion)
   end
 
   def find_flight
