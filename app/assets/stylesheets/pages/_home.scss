@@ -2,3 +2,19 @@
 body {
 background: $background-grey;  /* fallback for old browsers */
 }
+.home-card {
+  a {
+    color: $white;
+    text-decoration: none;
+    :active {
+      color: $white;
+    }
+    :link {
+      color: $white;
+    }
+  }
+  .card-icon {
+    width: ($card-icon * 2);
+    height: ($card-icon * 2);
+  }
+}
