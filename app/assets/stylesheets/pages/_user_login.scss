@@ -3,14 +3,17 @@
     color: $white;
   }
   .index-card {
-    min-height: 5vh;
-    max-height: 5vh;
-    min-width: 60vw;
-    max-width: 60vw;
+    min-height: $form-height;
+    max-height: $form-height;
+    min-width: 93vw;
+    max-width: 93vw;
   }
   .featured {
-    min-height: 5vh;
-    max-height: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: $form-height;
+    max-height: $form-height;
     padding: ($padding / 2) $padding;
     color: $white;
     background: $purple-ish;  /* fallback for old browsers */
@@ -19,7 +22,41 @@
     border-radius: 24px 0px 0px 24px;
   }
   .google-text {
-    margin-right: 20%;
+    margin-right: 35%;
     color: $white;
+  }
+  form {
+    width: 93vw;
+  }
+  .form-inputs {
+    margin-bottom: 40px;
+  }
+  .form-actions {
+
+  }
+  .index-card .align-items-center {
+    width: 93vw;
+  }
+  #content > section > div > a:nth-child(2) > div {
+    width: 93vw;
+  }
+  .form-check {
+    color: $white;
+  }
+
+  #content > section > div > a:nth-child(2){
+    margin-top: 20px;
+  }
+  .new-register{
+    position: relative;
+    top: 45px;
+  }
+  .google-login {
+    position: relative;
+    top: 10px;
+  }
+  .forgot-password {
+    position: relative;
+    top: 20px;
   }
 }
