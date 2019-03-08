@@ -28,10 +28,10 @@
               <p>Company: <%= ticket.company.name %></p>
               <p>Duration: <%= distance_of_time_in_words(ticket.departure_time, ticket.arrival_time) %></p>
               <div class="d-flex flex-row align-items-center justify-content-end mt-n5">
-                <%= link_to flight_search_path do %>
+                <%= link_to '#/' do %>
                   <i class="far fa-clock fa-lg alert"></i>
                 <% end %>
-                <%= link_to flight_search_path do %>
+                <%= link_to '#/' , class:'cancel-flight', data: { info:ticket.json, url: flights_url(ticket: ticket) } do %>
                   <i class="fas fa-calendar-times fa-lg alert"></i>
                 <% end %>
               </div>
