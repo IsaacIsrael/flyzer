@@ -25,6 +25,9 @@
   form {
     width: 95%;
   }
+  .form-inputs {
+    margin-bottom: 40px;
+  }
   .index-card .align-items-center {
     width: 95%;
   }
@@ -33,5 +36,8 @@
   }
   .form-check {
     color: $white;
+  }
+  #content > section > div > a:nth-child(4) > div{
+    margin-top: 65px;
   }
 }
