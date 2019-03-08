@@ -2,7 +2,7 @@
   <%= simple_form_for(@ticket) do |f|%>
     <%= f.input :number, :label => "E-ticket", input_html: { class: "border-round text-center" } %>
     <%= f.input :origin_id, :label => "Origin",  collection: @places, input_html: { class: "select2 places border-round text-center" }, :label_method => :info %>
-    <%= f.input :destination_id, :label => "Destiny", collection: @places, input_html: { class: "select2 places border-round text-center" }, :label_method => :info %>
+    <%= f.input :destination_id, :label => "Destination", collection: @places, input_html: { class: "select2 places border-round text-center" }, :label_method => :info %>
     <%= f.input :departure_time, as: :string, required: false, input_html: {class: "datepicker border-round"} %>
     <%= f.input :arrival_time, as: :string, required: false, input_html: {class: "datepicker border-round"} %>
     <%= f.input :company_id, :label => "Airline",collection: @company, input_html: { class: "select2 companies  border-round text-center" } %>
