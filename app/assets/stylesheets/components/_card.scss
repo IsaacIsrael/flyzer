@@ -4,6 +4,7 @@
   background: -webkit-linear-gradient(to right, $background-grey, $backgroud-light-grey, $backgroud-light-grey, $backgroud-light-grey);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, $background-grey, $backgroud-light-grey, $backgroud-light-grey, $backgroud-light-grey); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   border-radius: 24px;
+  min-height: 85vh;
   border: none;
   -webkit-box-shadow: $card-boxshadow;
   -moz-box-shadow: $card-boxshadow;
@@ -29,7 +30,7 @@
     justify-content: center;
     align-items: center;
     padding: ($padding / 2) ($padding * 3);
-    min-height: $height;
+    min-height: 85vh;
   }
 }
 .index-card {
