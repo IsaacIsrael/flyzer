@@ -25,13 +25,5 @@
 
   // Pensar como faremos para pegar cada um dos edit_ticket
 
-  #edit_ticket > div.form-group.select.optional.ticket_origin_id.form-group-valid > span > span.selection > span {
-    border-radius: 50px;
-  }
-  #edit_ticket > div.form-group.select.optional.ticket_destination_id.form-group-valid > span > span.selection > span {
-    border-radius: 50px;
-  }
-  #edit_ticket > div.form-group.select.optional.ticket_company_id.form-group-valid > span > span.selection > span {
-    border-radius: 50px;
-  }
+
 }
