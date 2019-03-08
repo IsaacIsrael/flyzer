@@ -10,7 +10,7 @@
                 </div>
                 <div class="card-text">
                   <% if user_signed_in? %>
-                    <h1 class="text-center">Boa tarde,</h1>
+                    <h1 id="greeting" class="text-center"></h1>
                     <% if current_user.name %>
                       <h1 class="card-special-text"><%= current_user.name %>!</h1>
                     <% else %>
