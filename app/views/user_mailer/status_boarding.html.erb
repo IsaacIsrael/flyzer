@@ -1,7 +1,25 @@
-<p>Olá <%= @user.email %>,</p>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <tr>
+    <td align="left">
+      <div class="">
+        <div style="align-items: center; display: flex; justify-content: start; margin-left: 3px; text-align: center; font-family: Open Sans; color: #393e46;">
+          <%= cl_image_tag 'https://res.cloudinary.com/dln8hlx3o/image/upload/c_thumb,w_200,g_face/v1551965932/logo_border.png', style:"height: 50px; width: 50px;" %>
+          <h2 style="margin-left: 5px; font-family: Open Sans; color: #393e46;">Confirm your Boarding Status</h2>
+        </div>
 
-<p>Caso algo esteja diferente do seu planejamento, nos avise que faremos o possível para encontrar um novo vôo para você. </p>
+        <div style="margin-left: 15px; font-family: Open Sans; color: #393e46;">
+          <h3>Hello <%= @user.name %>,</h3>
 
-<%= link_to "Estou com problemas no meu vôo", tickets_url %>
+          <p>If something is different from your planning, let us know that we will do our best to find a new flight. </p>
+            <%= link_to "Report problems on my flight", tickets_url, :style=>"background-color: #545FA9; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; border-radius: 5px; font-family: Open Sans;" %>
 
-<p>Equipe Flyzer</p>
+          <p style="font-size: 12px;"><strong>Didn’t request this email?</strong> No worries! Your address may have been entered by mistake. If you ignore or delete this email, nothing further will happen.</p>
+          <h5 style="color: #eeeeee;">_____________________________________________________________</h5>
+          <h5 style="color: #72788D;">Made by Flyzer Team</h5>
+          <h6 style="color: #72788D;">1404 Mourato Coelho Street, Sao Paulo, Brazil</h6>
+        </div>
+      </div>
+    </td>
+  </tr>
+</table>
