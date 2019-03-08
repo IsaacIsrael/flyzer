@@ -17,48 +17,29 @@
     <% end %>
 </div>
 
-<!-- Google Login -->
-<div class="google-login">
-  <%- if devise_mapping.omniauthable? %>
-    <%- resource_class.omniauth_providers.each do |provider| %>
-      <%= link_to omniauth_authorize_path(resource_name, provider) do %>
-        <div class="index-card d-flex justify-content-between align-items-center">
-          <div class="featured">
-            <i class="fab fa-google"></i>
-          </div>
-          <div class="google-text">
-            Entrar com <span style="font-weight: 300">Google</span>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
-</div>
-<!-- Forgot Password -->
 <div class="forgot-password">
   <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-    <%= link_to "Forgot your Password?", new_password_path(resource_name) %>
+    <%= link_to "Forgot your password?", new_password_path(resource_name) %>
   <% end %>
 </div>
 
-<!-- Remember Me -->
 <div class="new-register">
   <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
     <%= link_to new_registration_path(resource_name) do %>
       <div class="wrapper d-flex flex-column justify-content-center align-items-center">
         <div class="white-login-text">
-          Ainda não tem uma conta?
+          Not registred yet?
         </div>
         <div class="card-icon p-2">
           <%= image_tag('login.svg') %>
         </div>
         <div class="white-login-text">
-          Crie agora!
+          Sign up now!
         </div>
       </div>
     <% end %>
   <% end %>
 </div>
-
 
 
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
@@ -70,4 +51,3 @@
 <% end %>
 
 <% end %>
-
