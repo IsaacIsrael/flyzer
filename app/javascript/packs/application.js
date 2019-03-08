@@ -9,6 +9,7 @@ import { initSidebar } from "../components/init_sidebar";
 import { initDisplayValue } from '../components/init_order_component'
 import { initLoad } from "../components/init_load";
 import { initSelect2 } from '../components/init_select2';
+import { initGetHour } from '../components/init_get_hour';
 
 
 initReadUrl();
@@ -16,3 +17,4 @@ initSidebar();
 initDisplayValue();
 initLoad();
 initSelect2();
+initGetHour();
