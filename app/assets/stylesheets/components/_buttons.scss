@@ -1,5 +1,9 @@
 .btn-header {
   border-radius: 12px;
+  min-width: 25vh;
+  min-height: 10vw;
+  max-height: 10vw;
+  width: 100%;
   background: $white;
   color: $black;
   font-size: $font-size;
