@@ -4,7 +4,7 @@ class User < ApplicationRecord
   has_many :tickets, dependent: :destroy
   mount_uploader :photo, PhotoUploader
 
-  has_many :orders
+  has_many :orders, dependent: :destroy
 
   devise :omniauthable, :omniauth_providers => [:google_oauth2]
 
