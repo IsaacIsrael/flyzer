@@ -3,18 +3,16 @@
     <div id="carouselHomeCard" class="carousel slide" data-ride="carousel">
       <div class="home-card">
         <div class="carousel-inner">
-            <div class="carousel-item active" data-interval="100000">
-              <div class="card-body flex-column justify-content-center">
-                <div class="d-flex flex-column justify-content-center align-items-center">
+            <div class="carousel-item active" data-interval="10000">
+              <div class="card-body flex-column justify-content-around">
                   <div class="card-icon">
                     <%= image_tag('airplane.svg') %>
                   </div>
-                  <div class="card-text">
+                  <div class="card-text p-4">
                     <%= link_to new_user_session_path do %>
                         <div class="btn btn-header">Login</div>
                     <% end %>
                   </div>
-                </div>
                 <div class="new-register">
                     <%= link_to new_user_registration_path do %>
                       <div class="wrapper d-flex flex-column justify-content-center align-items-center">
@@ -32,7 +30,7 @@
                 </div>
               </div>
             </div>
-          <div class="carousel-item" data-interval="100000">
+          <div class="carousel-item" data-interval="10000">
             <div class="card-body flex-column">
               <div class="card-icon">
                 <%= image_tag('traveller.svg') %>
@@ -42,16 +40,6 @@
                 <%= link_to flight_search_path do %>
                   <div class="btn btn-header">Search</div>
                 <% end %>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item" data-interval="100000">
-            <div class="card-body">
-              <div class="card-icon">
-                <%= image_tag('traveller.svg') %>
-              </div>
-              <div class="card-text">
-                <h1 class="text-center">Ative suas notificações para utilizar 100% das nossas ferramentas!</h1>
               </div>
             </div>
           </div>
