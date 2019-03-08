@@ -3,17 +3,17 @@
     color: $white;
   }
   .index-card {
-    min-height: ;
-    max-height: 8vh;
+    min-height: $form-height;
+    max-height: $form-height;
     min-width: 93vw;
-    max-width: 100vw;
+    max-width: 93vw;
   }
   .featured {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 8vh;
-    max-height: 8vh;
+    min-height: $form-height;
+    max-height: $form-height;
     padding: ($padding / 2) $padding;
     color: $white;
     background: $purple-ish;  /* fallback for old browsers */
@@ -26,7 +26,7 @@
     color: $white;
   }
   form {
-    width: 95%;
+    width: 93vw;
   }
   .form-inputs {
     margin-bottom: 40px;
@@ -35,10 +35,10 @@
 
   }
   .index-card .align-items-center {
-    width: 95%;
+    width: 93vw;
   }
   #content > section > div > a:nth-child(2) > div {
-    width: 95%;
+    width: 93vw;
   }
   .form-check {
     color: $white;
@@ -50,5 +50,13 @@
   .new-register{
     position: relative;
     top: 45px;
+  }
+  .google-login {
+    position: relative;
+    top: 10px;
+  }
+  .forgot-password {
+    position: relative;
+    top: 20px;
   }
 }
