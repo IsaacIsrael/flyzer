@@ -2,6 +2,23 @@
   .index-card {
       max-height: 100vh;
     }
+  .stripe-button-el {
+    border-radius: 12px;
+    background: $green;  /* fallback for old browsers */
+      background: -webkit-linear-gradient(to right, $green, $vivid-green, $vivid-green, $vivid-green);  /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(to right, $green, $vivid-green, $vivid-green, $vivid-green); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: $black;
+    font-size: $font-size;
+    & > * {
+      border-radius: 12px;
+      background: $green;  /* fallback for old browsers */
+      background: -webkit-linear-gradient(to right, $green, $vivid-green, $vivid-green, $vivid-green);  /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(to right, $green, $vivid-green, $vivid-green, $vivid-green); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      color: $black;
+      font-size: $font-size;
+      font-weight: 300;
+    }
+  }
     .flight-info {
       color: $white;
       .flight-info-route {
