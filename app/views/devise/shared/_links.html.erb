@@ -3,20 +3,21 @@
 <% end %>
 
 <!-- Google Login -->
-<%- if devise_mapping.omniauthable? %>
-  <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= link_to omniauth_authorize_path(resource_name, provider) do %>
-      <div class="index-card d-flex justify-content-between align-items-center">
-        <div class="featured">
-          <i class="fab fa-google"></i>
+<div class="google-login">
+  <%- if devise_mapping.omniauthable? %>
+    <%- resource_class.omniauth_providers.each do |provider| %>
+      <%= link_to omniauth_authorize_path(resource_name, provider) do %>
+        <div class="index-card d-flex justify-content-between align-items-center">
+          <div class="featured">
+            <i class="fab fa-google"></i>
+          </div>
+          <div class="google-text">
+            Entrar com <span style="font-weight: 300">Google</span>
+          </div>
         </div>
-        <div class="google-text">
-          Entrar com <span style="font-weight: 300">Google</span>
-        </div>
-      </div>
+      <% end %>
     <% end %>
-  <% end %>
-
+</div>
 <!-- Forgot Password -->
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
   <%= link_to "Forgot your Password?", new_password_path(resource_name) %>
