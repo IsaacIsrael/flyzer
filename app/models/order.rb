@@ -4,17 +4,21 @@ class Order < ApplicationRecord
 
   after_update :create_ticket
 
+  def flight
+    Flight.find_by(sku: flight_sku)
+  end
+
   private
 
   def create_ticket
-    flight = Flight.find_by(sku: flight_sku)
-    Ticket.create(number: flight.sku,
-                  departure_time: flight.departure_time,
-                  arrival_time:flight.arrival_time,
-                  destination: flight.destination,
-                  origin: flight.origin,
-                  company: flight.company,
+    @flight = flight
+    Ticket.create(number: @flight.sku,
+                  departure_time: @flight.departure_time,
+                  arrival_time:@flight.arrival_time,
+                  destination: @flight.destination,
+                  origin: @flight.origin,
+                  company: @flight.company,
                   user: user,
-                  flight: flight)
+                  flight: @flight)
   end
 end

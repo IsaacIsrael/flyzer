@@ -7,9 +7,16 @@ Devise.setup do |config|
   client_id = ENV['GOOGLE_ID']
   client_secret = ENV['GOOGLE_SECRET']
   # Configure Google omniauth with proper scope
-  config.omniauth :google_oauth2, client_id, client_secret, {
-    scope: "userinfo.email,calendar.readonly"
-  }
+  if Rails.env == "development"
+    config.omniauth :google_oauth2, client_id, client_secret, {
+      scope: "userinfo.email,calendar.readonly",
+      skip_jwt: true
+    }
+  else
+    config.omniauth :google_oauth2, client_id, client_secret, {
+      scope: "userinfo.email,calendar.readonly",
+    }
+  end
 
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
