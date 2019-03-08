@@ -1,6 +1,6 @@
-<section class="forgot-password">
+<section class="user-login">
   <div class="d-flex flex-column w-70 justify-content-center align-items-center text-center p-1">
-    <h2>Forgot your password?</h2>
+    <h2 class="white-login-text">Forgot your password?</h2>
 
     <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
       <%= f.error_notification %>
@@ -14,8 +14,8 @@
                     input_html: { class: "border-round text-center" } %>
       </div>
 
-      <div class="form-actions">
-        <%= f.button :submit, "Send me reset password instructions", class: "btn-primary border-round" %>
+      <div class="form-actions index-card">
+        <%= f.button :submit, "Send me reset password instructions", class: "white-login-text" %>
       </div>
     <% end %>
 
