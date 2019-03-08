@@ -3,14 +3,17 @@
     color: $white;
   }
   .index-card {
-    min-height: 5vh;
-    max-height: 5vh;
+    min-height: ;
+    max-height: 8vh;
     min-width: 93vw;
     max-width: 100vw;
   }
   .featured {
-    min-height: 5vh;
-    max-height: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 8vh;
+    max-height: 8vh;
     padding: ($padding / 2) $padding;
     color: $white;
     background: $purple-ish;  /* fallback for old browsers */
@@ -28,6 +31,9 @@
   .form-inputs {
     margin-bottom: 40px;
   }
+  .form-actions {
+
+  }
   .index-card .align-items-center {
     width: 95%;
   }
@@ -37,7 +43,12 @@
   .form-check {
     color: $white;
   }
-  #content > section > div > a:nth-child(4) > div{
-    margin-top: 65px;
+
+  #content > section > div > a:nth-child(2){
+    margin-top: 20px;
+  }
+  .new-register{
+    position: relative;
+    top: 45px;
   }
 }
