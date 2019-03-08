@@ -1,11 +1,11 @@
-<%- if controller_name != 'sessions' %>
+<%- if !['sessions', 'passwords'].include?(controller_name) %>
   <%= link_to "Log in", new_session_path(resource_name), class: "btn btn-outline-primary" %>
 <% end %>
 <div class="google-login">
   <%- if devise_mapping.omniauthable? %>
     <%- resource_class.omniauth_providers.each do |provider| %>
       <%= link_to omniauth_authorize_path(resource_name, provider) do %>
-        <div class="index-card d-flex justify-content-between align-items-center">
+        <div class="index-card d-flex justify-content-between align-items-center nova-classe">
           <div class="featured">
             <i class="fab fa-google"></i>
           </div>
@@ -51,4 +51,3 @@
 <% end %>
 
 <% end %>
-
