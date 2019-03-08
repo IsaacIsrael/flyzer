@@ -19,7 +19,7 @@ class TicketsController < ApplicationController
     if @ticket.save
       send_email_time = @ticket.departure_time - 10.minutes + 3.hours
       UserMailer.status_boarding(@ticket.user).deliver_later(wait_until: send_email_time)
-      redirect_to tickets_path
+        redirect_to tickets_path
     else
       render :new
     end
