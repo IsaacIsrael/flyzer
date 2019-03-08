@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
+  if Rails.env.production?
+   match '(*any)', to: redirect(subdomain: 'www'), via: :all, constraints: {subdomain: ''}
+  end
+
   require "sidekiq/web"
+
 
   authenticate :user, lambda { |u| u.admin } do
     mount Sidekiq::Web => '/sidekiq'
