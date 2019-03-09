@@ -45,7 +45,7 @@ class TicketsController < ApplicationController
 
   def set_variable
     @places = Place.all
-    @company = Company.all
+    @company = Company.all.order('name')
   end
 
   def ticket_params
