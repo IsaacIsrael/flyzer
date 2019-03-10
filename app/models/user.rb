@@ -4,7 +4,7 @@ class User < ApplicationRecord
   has_many :tickets, dependent: :destroy
   mount_uploader :photo, PhotoUploader
 
-  has_many :orders
+  has_many :orders, dependent: :destroy
 
   devise :omniauthable, :omniauth_providers => [:google_oauth2]
 
@@ -15,7 +15,7 @@ class User < ApplicationRecord
     # Either create a User record or update it based on the provider (Google) and the UID
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.name = auth.info.name
-      user.remote_photo_url = auth.info.image
+      user.remote_photo_url = auth.info.image.gsub("/s50", "/s400")
       user.email = auth.info.email
       user.password = Devise.friendly_token[0, 20]
       user.token = auth.credentials.token

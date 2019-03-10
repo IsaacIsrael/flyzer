@@ -12,7 +12,18 @@
   h3 {
     color: $white;
   }
-  #new_ticket > div.form-group.select.required > span > span.selection > span {
+  #new_ticket > div.form-group.select.optional.ticket_origin_id > span > span.selection > span {
     border-radius: 50px;
   }
+  #new_ticket > div.form-group.select.optional.ticket_destination_id > span > span.selection > span {
+    border-radius: 50px;
+  }
+  #new_ticket > div.form-group.select.optional.ticket_company_id > span > span.selection > span {
+    border-radius: 50px;
+  }
+
+
+  // Pensar como faremos para pegar cada um dos edit_ticket
+
+
 }
