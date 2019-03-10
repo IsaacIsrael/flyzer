@@ -3,6 +3,7 @@ body {
 background: $background-grey;  /* fallback for old browsers */
 }
 .home-card {
+  color: $white;
   a {
     color: $white;
     text-decoration: none;
@@ -16,5 +17,8 @@ background: $background-grey;  /* fallback for old browsers */
   .card-icon {
     width: ($card-icon * 2);
     height: ($card-icon * 2);
+  }
+  .flight-info-time {
+    color: $coral-red;
   }
 }
