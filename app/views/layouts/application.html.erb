@@ -9,8 +9,7 @@
     <%= javascript_pack_tag 'jquery_config' %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
-    <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+    <%= favicon_link_tag asset_path('favicon.ico') %>
   </head>
   <body>
     <div class="d-flex w-100 align-items-stretch" id="main-div">

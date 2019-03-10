@@ -17,10 +17,9 @@ class TicketsController < ApplicationController
     @ticket = Ticket.new(ticket_params)
     @ticket.user = current_user
     if @ticket.save
-      send_email_time = @ticket.departure_time - 10.minutes
-      # raise
-      UserMailer.status_boarding(@ticket.user).deliver_later!(wait_until: send_email_time)
-      redirect_to tickets_path
+      send_email_time = @ticket.departure_time - 10.minutes + 3.hours
+      UserMailer.status_boarding(@ticket.user).deliver_later(wait_until: send_email_time)
+        redirect_to tickets_path
     else
       render :new
     end
@@ -46,7 +45,7 @@ class TicketsController < ApplicationController
 
   def set_variable
     @places = Place.all
-    @company = Company.all
+    @company = Company.all.order('name')
   end
 
   def ticket_params

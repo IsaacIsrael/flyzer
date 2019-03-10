@@ -1,16 +1,58 @@
-<h1>Purchase of flight <%= @order.flight_sku %></h1>
-<%= form_tag flight_order_payments_path(@order) do %>
-  <article>
-    <label class="amount">
-      <span>Amount: <%= humanized_money_with_symbol(@order.amount) %></span>
-    </label>
-  </article>
+<section class="order-show">
+  <div class="container">
+    <div class="index-card d-flex flex-column justify-content-center align-items-center p-3">
+      <div class="flight-info text-center">
+        <h1 class="flight-info-route"><%= @order.flight.origin.code %> - <%= @order.flight.destination.code %></h1>
+        <p class="flight-info-duration"><%= @order.flight.origin.city %> - <%= @order.flight.destination.city %></p>
+        <% if @order.flight.departure_time.strftime("%A, %B %e").last == 1 %>
+          <h2><%= @order.flight.departure_time.strftime("%A, %B %e") %>st</h2>
+        <% elsif @order.flight.departure_time.strftime("%A, %B %e").last == 2 %>
+          <h2><%= @order.flight.departure_time.strftime("%A, %B %e") %>nd</h2>
+        <% elsif @order.flight.departure_time.strftime("%A, %B %e").last == 3 %>
+          <h2><%= @order.flight.departure_time.strftime("%A, %B %e") %>rd</h2>
+        <% else %>
+          <h2><%= @order.flight.departure_time.strftime("%A, %B %e") %>th</h2>
+        <% end %>
 
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-    data-name="My Flight"
-    data-email="<%= current_user.email %>"
-    data-description="Flight <%= @order.flight_sku %>"
-    data-amount="<%= @order.amount_cents %>"
-    data-currency="<%= @order.amount.currency %>"></script>
-<% end %>
+        <h2 class="flight-info-time"><%= @order.flight.departure_time.strftime("%H:%M") %> - <%= @order.flight.arrival_time.strftime("%H:%M") %>
+        <% if @order.flight.departure_time.day != @order.flight.arrival_time.day %>
+          <span class="flight-plus-one"> <sup>+1</sup></span>
+        <% end %></h2>
+        <p class="flight-info-duration">Duration: <%= distance_of_time_in_words(@order.flight.departure_time, @order.flight.arrival_time) %></p>
+        <% if @order.flight.stops.count >= 1 %>
+          <% if @order.flight.stops.count == 1 %>
+            <h2><%= @order.flight.stops.count %> stop</h2>
+          <% else %>
+            <h2><%= @order.flight.stops.count %> stops</h2>
+          <% end %>
+          <div class="stops" data-toggle="collapse" data-target="#stops-info" aria-expanded="false" aria-controls="stops-info">
+           <p><i class="fas fa-plus-circle fa-lg"></i></p>
+          </div>
+          <div class="collapse" id="stops-info">
+            <% @order.flight.stops.each_with_index do | stop, index | %>
+              <h4 class="stops-header">Stop <%= index + 1 %></h4>
+              <p><i class="fas fa-plane fa-xs"></i> <%= stop.place.name %></p>
+              <p class="stops-footer"><i class="fas fa-clock fa-xs"></i> Duration: <%= Time.at(stop.duration).utc.strftime("%H") %> hours </p>
+            <% end %>
+          </div>
+        <% end %>
+            <%= form_tag flight_order_payments_path(@order) do %>
+        <article>
+          <label class="amount">
+            <h2 class="flight-info-time"><span><%= humanized_money_with_symbol(@order.amount) %></span></h2>
+          </label>
+        </article>
+
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-name="My Flight"
+          data-email="<%= current_user.email %>"
+          data-description="Flight <%= @order.flight_sku %>"
+          data-amount="<%= @order.amount_cents %>"
+          data-currency="<%= @order.amount.currency %>"></script>
+      <% end %>
+      </div>
+    </div>
+
+
+</section>
