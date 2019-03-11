@@ -3,7 +3,7 @@ class TicketsController < ApplicationController
   before_action :set_variable, only: %i[new create edit update]
 
   def index
-    @tickets = Ticket.all
+    @tickets = Ticket.all.order('departure_time')
   end
 
   def show
@@ -17,7 +17,7 @@ class TicketsController < ApplicationController
     @ticket = Ticket.new(ticket_params)
     @ticket.user = current_user
     if @ticket.save
-      send_email_time = @ticket.departure_time - 10.minutes + 3.hours
+      send_email_time = @ticket.departure_time_UTC - 10.minutes
       UserMailer.status_boarding(@ticket.user).deliver_later(wait_until: send_email_time)
         redirect_to tickets_path
     else
