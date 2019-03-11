@@ -1,12 +1,7 @@
 Rails.application.routes.draw do
 
   # This supose to work for redirect when user type the page withtout 'www'
-  if Rails.env.production?
-     match '(*any)', to: redirect(subdomain: ''), via: :all, constraints: {subdomain: 'www'}
-  end
-
   require "sidekiq/web"
-
 
   authenticate :user, lambda { |u| u.admin } do
     mount Sidekiq::Web => '/sidekiq'

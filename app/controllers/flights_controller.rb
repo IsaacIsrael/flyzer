@@ -61,8 +61,7 @@ class FlightsController < ApplicationController
   def set_variables
     @ticket = params[:ticket] ? Ticket.find(params[:ticket]) : nil
 
-    #  @origin = City.find_by(name: I18n.transliterate(request.location.city))
-    @origin = @ticket&.origin || City.find_by(name: "New York")
+    @origin = @ticket&.origin || City.find_by(name: Rails.env.production? ? I18n.transliterate(request.location.city) : "New York")
     @destination = @ticket&.destination || City.find(params[:destination])
     @date = @ticket&.departure_time || DateTime.now
   end
