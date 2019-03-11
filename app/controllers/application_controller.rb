@@ -32,4 +32,8 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :photo, :photo_cache])
     devise_parameter_sanitizer.permit(:account_update, keys: [:photo, :photo_cache])
   end
+
+  def default_url_options
+    { host: ENV["HOST"] || "localhost:3000" }
+  end
 end
