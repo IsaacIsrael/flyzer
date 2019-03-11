@@ -1,6 +1,7 @@
-
-<% if user_signed_in? %>
-  <%= render 'home_logged_in' %>
-<% else %>
-  <%= render 'home_logged_out' %>
-<% end %>
+<section id="home">
+  <% if user_signed_in? %>
+    <%= render 'home_logged_in' %>
+  <% else %>
+    <%= render 'home_logged_out' %>
+  <% end %>
+</section>
