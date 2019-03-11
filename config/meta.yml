@@ -1,5 +1,5 @@
 meta_product_name: "Flyzer"
 meta_title: "Flyzer - Managing the unexpected"
-meta_description: "Relevant description"
+meta_description: "Web plattaform to help you find your next flight when the unexpected happens"
 meta_image: "flyzer.png" # should exist in `app/assets/images/`
 # twitter_account: "@product_twitter_account"   # required for Twitter Cards
