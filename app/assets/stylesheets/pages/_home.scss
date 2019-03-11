@@ -1,22 +1,11 @@
 // Specific CSS for your home-page
 body {
 background: $background-grey;  /* fallback for old browsers */
-color: $white;
   h1 {
     font-size: ($font-size * 2.3);
   }
   h2 {
     font-size: ($font-size * 1.5);
-  }
-  a {
-    color: $white;
-    text-decoration: none;
-    :active {
-      color: $white;
-    }
-    :link {
-      color: $white;
-    }
   }
   .card-icon {
     width: ($card-icon * 2);
@@ -25,8 +14,9 @@ color: $white;
   .flight-info-time {
     color: $coral-red;
   }
-  .card-body {
+  .home-header {
     min-height: 87vh;
+    color: $white;
   }
   .card-question {
     margin-bottom: 114px;
@@ -34,5 +24,15 @@ color: $white;
   .login-button {
     position: relative;
     top: 37px;
+  }
+  .email-text {
+    position: relative;
+    top: 30px;
+  }
+  .arrow-opacity {
+    opacity: 0.3;
+  }
+  .home-height {
+    min-height: 87vh;
   }
 }
