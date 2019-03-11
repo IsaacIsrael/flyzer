@@ -2,6 +2,7 @@
   <div class="container" id ="load" data-url='<%= flight_load_path(url_params) %>'>
     <div  class="icon d-flex align-items-center justify-content-center">
       <span class="ld ld-ring ld-spin"></span>
+      <%= I18n.transliterate(request.location.city) %>
     </div>
   </div>
 </section>
