@@ -3,7 +3,7 @@ class TicketsController < ApplicationController
   before_action :set_variable, only: %i[new create edit update]
 
   def index
-    @tickets = Ticket.all
+    @tickets = Ticket.all.order('departure_time')
   end
 
   def show
