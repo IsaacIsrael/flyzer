@@ -1,14 +1,13 @@
 <div class="container">
   <div class="home-header">
     <div id="carouselHomeCard" class="carousel slide" data-ride="carousel">
-      <div class="home-card">
         <div class="carousel-inner">
-            <div class="carousel-item active" data-interval="10000">
-              <div class="card-body flex-column justify-content-around">
+            <div class="carousel-item active" data-interval="100000">
+              <div class="card-body d-flex flex-column justify-content-between align-items-center">
                   <div class="card-icon">
                     <%= image_tag('airplane.svg') %>
                   </div>
-                  <div class="card-text p-4">
+                  <div class="card-text login-button">
                     <%= link_to new_user_session_path do %>
                         <div class="btn btn-header">Login</div>
                     <% end %>
@@ -17,26 +16,28 @@
                     <%= link_to new_user_registration_path do %>
                       <div class="wrapper d-flex flex-column justify-content-center align-items-center">
                         <div class="white-login-text">
-                          Not registred yet?
+                          <h2>Not registred yet?</h2>
                         </div>
                         <div class="card-icon p-2">
                           <%= image_tag('login.svg') %>
                         </div>
                         <div class="white-login-text">
-                          Sign up now!
+                          <h2>Sign up now!</h1>
                         </div>
                       </div>
                     <% end %>
                 </div>
               </div>
             </div>
-          <div class="carousel-item" data-interval="10000">
-            <div class="card-body flex-column">
+          <div class="carousel-item" data-interval="100000">
+            <div class="card-body d-flex flex-column justify-content-between align-items-center">
               <div class="card-icon">
                 <%= image_tag('traveller.svg') %>
               </div>
-              <div class="card-text">
+              <div class="card-text text-center card-question">
                 <h1>Where are you heading next?</h1>
+              </div>
+              <div>
                 <%= link_to flight_search_path do %>
                   <div class="btn btn-header">Search</div>
                 <% end %>
@@ -44,7 +45,6 @@
             </div>
           </div>
         </div>
-      </div>
       <a class="carousel-control-prev" href="#carouselHomeCard" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>

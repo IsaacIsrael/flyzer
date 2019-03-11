@@ -1,9 +1,13 @@
 // Specific CSS for your home-page
 body {
 background: $background-grey;  /* fallback for old browsers */
-}
-.home-card {
-  color: $white;
+color: $white;
+  h1 {
+    font-size: ($font-size * 2.3);
+  }
+  h2 {
+    font-size: ($font-size * 1.5);
+  }
   a {
     color: $white;
     text-decoration: none;
@@ -20,5 +24,15 @@ background: $background-grey;  /* fallback for old browsers */
   }
   .flight-info-time {
     color: $coral-red;
+  }
+  .card-body {
+    min-height: 87vh;
+  }
+  .card-question {
+    margin-bottom: 114px;
+  }
+  .login-button {
+    position: relative;
+    top: 37px;
   }
 }
