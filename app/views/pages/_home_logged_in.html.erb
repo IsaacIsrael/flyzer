@@ -20,15 +20,15 @@
           <div class="carousel-item" data-interval="10000">
             <div class="card-body d-flex flex-column justify-content-between align-items-center home-height">
               <% if current_user.tickets.count == 0 %>
-                <div class="card-icon">
+                <div class="card-icon no-flight">
                   <%= image_tag('no-flights.svg') %>
                 </div>
-                <div class="card-text p-1">
-                  <h1>You dont have any flights coming.</h1>
-                  <%= link_to new_ticket_path do %>
-                    <div class="btn btn-header">Register now!</div>
-                  <% end %>
+                <div class="card-text no-flight-text">
+                  <h1>You don't have any flights coming.</h1>
                 </div>
+                <%= link_to new_ticket_path do %>
+                  <div class="btn btn-header">Register now!</div>
+                <% end %>
               <% else %>
                 <div class="card-text p-1">
                   <h1>Next Flight</h1>
