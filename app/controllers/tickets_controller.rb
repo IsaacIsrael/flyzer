@@ -3,7 +3,7 @@ class TicketsController < ApplicationController
   before_action :set_variable, only: %i[new create edit update]
 
   def index
-    @tickets = Ticket.all.order('departure_time')
+    @tickets = Ticket.where(user: current_user).order('departure_time')
   end
 
   def show

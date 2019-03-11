@@ -23,10 +23,10 @@ const getHTML = (info) =>{
 const display = (e) => {
   console.log(e.currentTarget.dataset.url)
   swal({
-    title: "Yo , you lost your flight ?",
+    title: "Did you miss your flight?",
     content: getHTML(JSON.parse(e.currentTarget.dataset.info)),
     icon: "warning",
-    buttons: ["Oh noez!", "Aww yiss!"],
+    buttons: ["No", "Yes"],
   }).then((value) => {
     if (value) {
       window.location = e.target.parentElement.dataset.url
