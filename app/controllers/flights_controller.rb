@@ -45,11 +45,11 @@ class FlightsController < ApplicationController
   end
 
   def cheapest_flight
-    set_flights('price_cents ASC, (arrival_time - departure_time) ASC').first
+    set_flights('price_cents ASC, (arrival_time - departure_time) ASC, departure_time ASC').first
   end
 
   def fastest_flight
-    set_flights('(arrival_time - departure_time) ASC, price_cents ASC').first
+    set_flights('(arrival_time - departure_time) ASC, departure_time ASC, price_cents ASC').first
   end
 
   def most_convenient_flight

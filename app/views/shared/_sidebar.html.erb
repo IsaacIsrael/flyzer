@@ -30,20 +30,20 @@
           <%= link_to flight_search_path do %>
             <li class="list-group-item"><i class="fas fa-search"></i> <span class="sidebar-options">Search Flights</span></li>
           <% end %>
-          <li class="list-group-item"><i class="fas fa-credit-card"></i> <span class="sidebar-options">Payment</span></li>
+         <!--  <li class="list-group-item"><i class="fas fa-credit-card"></i> <span class="sidebar-options">Payment</span></li> -->
         <% else %>
           <%= link_to flight_search_path do %>
             <li class="list-group-item"><i class="fas fa-search"></i> <span class="sidebar-options">Search Flights</span></li>
           <% end %>
         <% end %>
       </ul>
-      <div class="card-body">
-        <% if user_signed_in? %>
-          <%= link_to destroy_user_session_path, method: :delete do %>
-            <i class="fas fa-sign-out-alt"></i> Logout</a>
-          <% end %>
-        <% end %>
-        <a href="#" class="card-link"><i class="fas fa-question-circle sidebar-options"></i> Help</a>
-      </div>
+      <% if user_signed_in? %>
+        <div class="card-body">
+            <%= link_to destroy_user_session_path, method: :delete do %>
+              <i class="fas fa-sign-out-alt"></i> Logout</a>
+            <% end %>
+          <!-- <a href="#" class="card-link"><i class="fas fa-question-circle sidebar-options"></i> Help</a> -->
+        </div>
+      <% end %>
     </div>
   </nav>
